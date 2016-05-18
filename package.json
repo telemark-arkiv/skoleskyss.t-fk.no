@@ -52,24 +52,24 @@
     "url": "http://github.com/telemark/skoleskyss.t-fk.no/issues"
   },
   "devDependencies": {
-    "coveralls": "2.11.6",
-    "standard": "7.0.1",
-    "tap": "5.4.4"
+    "coveralls": "2.11.9",
+    "standard": "7.1.0",
+    "tap": "5.7.1"
   },
   "dependencies": {
     "get-skole-aar": "1.0.0",
     "good": "7.0.0",
-    "good-console": "6.1.0",
+    "good-console": "6.1.1",
     "good-squeeze": "3.0.1",
     "handlebars": "4.0.5",
-    "hapi": "13.0.0",
-    "hapi-auth-cookie": "6.0.0",
+    "hapi": "13.4.0",
+    "hapi-auth-cookie": "6.1.1",
     "hapi-auth-jwt2": "6.0.0",
     "hoek": "4.0.0",
     "inert": "4.0.0",
-    "jsonwebtoken": "6.0.0",
-    "mongojs": "2.3.0",
-    "vision": "4.0.1",
-    "wreck": "7.0.0"
+    "jsonwebtoken": "6.2.0",
+    "mongojs": "2.4.0",
+    "vision": "4.1.0",
+    "wreck": "7.2.1"
   }
 }
