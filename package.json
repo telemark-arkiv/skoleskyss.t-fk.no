@@ -70,6 +70,7 @@
     "jsonwebtoken": "6.2.0",
     "mongojs": "2.4.0",
     "vision": "4.1.0",
-    "wreck": "7.2.1"
+    "wreck": "7.2.1",
+    "yar": "7.0.2"
   }
 }
