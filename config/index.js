@@ -9,7 +9,7 @@ const config = {
   SKOLESKYSS_YAR_SECRET: process.env.SKOLESKYSS_YAR_SECRET || 'Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go',
   SKOLESKYSS_GITHUB_FEEDBACK_URL: process.env.SKOLESKYSS_GITHUB_FEEDBACK_URL || 'https://api.github.com/repos/:user/:repo/issues',
   SKOLESKYSS_GITHUB_USER: process.env.SKOLESKYSS_GITHUB_USER || 'yourgithubuser',
-  SKOLESKYSS_GITHUB_TOKEN: process.env.SKOLESKYSS_GITHUB_TOKEN || 'yourgithubtoken',
+  SKOLESKYSS_GITHUB_TOKEN: process.env.SKOLESKYSS_GITHUB_TOKEN || 'yourgithubtoken'
 }
 
 module.exports = config

@@ -5,8 +5,8 @@ const Hoek = require('hoek')
 const server = new Hapi.Server()
 const config = require('./config')
 const skoleskyssService = require('./index')
-const validate = require('./lib/validateJWT')
-const validateAPI = require('./lib/validateAPI')
+const validate = require('./lib/validate-jwt')
+const validateAPI = require('./lib/validate-api')
 const goodOptions = {
   ops: {
     interval: 900000
@@ -67,7 +67,7 @@ server.register(require('hapi-auth-cookie'), function (err) {
   }
 
   server.auth.strategy('session', 'cookie', {
-    password: config.COOKIE_SECRET,
+    password: config.SKOLESKYSS_COOKIE_SECRET,
     cookie: 'skoleskyss-session',
     validateFunc: validate,
     redirectTo: '/login',
@@ -83,7 +83,7 @@ server.register(require('hapi-auth-jwt2'), function (err) {
   }
 
   server.auth.strategy('jwt', 'jwt',
-    { key: config.JWT_SECRET,          // Never Share your secret key
+    { key: config.SKOLESKYSS_JWT_SECRET,          // Never Share your secret key
       validateFunc: validateAPI,            // validate function defined above
       verifyOptions: { algorithms: [ 'HS256' ] } // pick a strong algorithm
     })
