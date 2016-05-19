@@ -2,8 +2,8 @@ queueserver:
   image: mongo:3.2.1
 
 skoleskyss:
-  # image: telemark/skoleskyss.t-fk.no
-  build: .
+  image: telemark/skoleskyss.t-fk.no
+  #build: .
   container_name: skoleskyss
   env_file: skoleskyss.env
   restart: always
