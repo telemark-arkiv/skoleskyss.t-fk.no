@@ -40,8 +40,8 @@
     ]
   },
   "louie": {
-    "versionName": "Mötorhead",
-    "versionVideoUrl": "https://www.youtube.com/watch?v=4V1p1dM3snQ",
+    "versionName": "Motörhead",
+    "versionVideoUrl": "https://www.youtube.com/watch?v=WDP7_h4wkgw",
     "systemName": "skoleskyss"
   },
   "repository": {
@@ -57,6 +57,7 @@
     "tap": "5.7.1"
   },
   "dependencies": {
+    "chairo": "2.2.0",
     "get-skole-aar": "1.0.0",
     "good": "7.0.0",
     "good-console": "6.1.1",
@@ -69,6 +70,9 @@
     "inert": "4.0.0",
     "jsonwebtoken": "6.2.0",
     "mongojs": "2.4.0",
+    "seneca": "2.0.1",
+    "seneca-balance-client": "0.5.0",
+    "seneca-mesh": "0.7.0",
     "vision": "4.1.0",
     "wreck": "7.2.1",
     "yar": "7.0.2"
