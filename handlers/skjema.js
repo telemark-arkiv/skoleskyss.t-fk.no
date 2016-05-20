@@ -1,18 +1,17 @@
 'use strict'
 
+const getNextForm = require('../lib/get-next-form')
 const pkg = require('../package.json')
 
 module.exports.getNext = function (request, reply) {
   const payload = request.payload
+  const yar = request.yar
+  const nextForm = getNextForm({
+    payload: payload,
+    yar: yar
+  })
 
-  if (payload.alternativtBosted) {
-    reply.redirect('/alternativtbosted')
-  } else if (payload.velgSkole) {
-    reply.redirect('/velgskole')
-  } else {
-    reply.redirect('/seover')
-  }
-
+  reply.redirect('/' + nextForm)
 }
 
 module.exports.showSeOver = function showSeOver (request, reply) {

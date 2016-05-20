@@ -21,6 +21,13 @@ const goodOptions = {
     }, 'stdout']
   }
 }
+const yarOptions = {
+  storeBlank: false,
+  cookieOptions: {
+    password: config.SKOLESKYSS_YAR_SECRET,
+    isSecure: false
+  }
+}
 
 server.connection({
   port: config.SKOLESKYSS_SERVER_PORT_WEB
@@ -87,6 +94,15 @@ server.register(require('hapi-auth-jwt2'), function (err) {
       validateFunc: validateAPI,            // validate function defined above
       verifyOptions: { algorithms: [ 'HS256' ] } // pick a strong algorithm
     })
+})
+
+server.register({
+  register: require('yar'),
+  options: yarOptions
+}, function (err) {
+  if (err) {
+    console.error('Failed to load a plugin:', err)
+  }
 })
 
 server.register({
