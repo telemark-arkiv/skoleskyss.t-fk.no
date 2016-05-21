@@ -57,7 +57,7 @@
     "tap": "5.7.1"
   },
   "dependencies": {
-    "chairo": "2.2.0",
+    "chairo": "2.2.1",
     "get-skole-aar": "1.0.0",
     "good": "7.0.1",
     "good-console": "6.1.1",
