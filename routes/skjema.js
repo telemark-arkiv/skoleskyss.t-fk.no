@@ -5,6 +5,33 @@ const Handlers = require('../handlers/skjema')
 const routes = [
   {
     method: 'GET',
+    path: '/personalia',
+    config: {
+      handler: Handlers.showPersonalia,
+      description: 'Show the personal info pages',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/kontaktinformasjon',
+    config: {
+      handler: Handlers.showKontaktInformasjon,
+      description: 'Show the contact info page',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/grunnlag',
+    config: {
+      handler: Handlers.showGrunnlag,
+      description: 'Show the personal info pages',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
     path: '/alternativtbosted',
     config: {
       handler: Handlers.showAlternativtBosted,
@@ -18,6 +45,24 @@ const routes = [
     config: {
       handler: Handlers.showVelgSkole,
       description: 'Start here if logged in',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/ikkefunnet',
+    config: {
+      handler: Handlers.showIkkeFunnet,
+      description: 'Show the person not found page',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/busskort',
+    config: {
+      handler: Handlers.showBusskort,
+      description: 'Show travel card page',
       auth: false
     }
   },

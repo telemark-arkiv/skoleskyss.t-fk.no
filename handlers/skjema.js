@@ -26,7 +26,7 @@ module.exports.showSeOver = function showSeOver (request, reply) {
   reply.view('seover', viewOptions)
 }
 
-module.exports.showAlternativtBosted = function showAlternativtBosted (request, reply) {
+module.exports.showPersonalia = function showPersonalia (request, reply) {
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -35,7 +35,55 @@ module.exports.showAlternativtBosted = function showAlternativtBosted (request, 
     githubUrl: pkg.repository.url
   }
 
-  reply.view('alternativtbosted', viewOptions)
+  reply.view('personalia', viewOptions)
+}
+
+module.exports.showKontaktInformasjon = function showKontaktInformasjon (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('kontaktinformasjon', viewOptions)
+}
+
+module.exports.showGrunnlag = function showGrunnlag (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('grunnlag', viewOptions)
+}
+
+module.exports.showBusskort = function showBusskort (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('busskort', viewOptions)
+}
+
+module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('ikkefunnet', viewOptions)
 }
 
 module.exports.showVelgSkole = function showVelgSkole (request, reply) {
@@ -48,4 +96,16 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
   }
 
   reply.view('velgskole', viewOptions)
+}
+
+module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('sokttidligere', viewOptions)
 }

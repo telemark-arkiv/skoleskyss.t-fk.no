@@ -29,6 +29,33 @@ const routes = [
       description: 'Start here if manual',
       auth: false
     }
+  },
+  {
+    method: 'GET',
+    path: '/hjelp',
+    config: {
+      handler: Handlers.hjelp,
+      description: 'Show the help page',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/vilkar',
+    config: {
+      handler: Handlers.vilkar,
+      description: 'Show the vilkar page',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/personvern',
+    config: {
+      handler: Handlers.personvern,
+      description: 'Show the personvern page',
+      auth: false
+    }
   }
 ]
 
