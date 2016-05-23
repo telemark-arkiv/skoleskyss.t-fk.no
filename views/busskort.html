@@ -2,6 +2,6 @@
 
 <form action="/next" method="post">
     <input type="hidden" name="stepName" value="busskort">
-    <input type="number" name="busskortNummer" autofocus="autofocus">
+    <input type="text" name="busskortNummer" pattern="\d*" maxlength="16" placeholder="Skriv inn busskortnummer. Kun tall">
     <button type="submit">Neste</button>
 </form>
