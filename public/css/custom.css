@@ -286,3 +286,11 @@ a:visited {
 .fullWidth {
     width: 100%;
 }
+
+.logo {
+    width: 3.6rem;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 1rem;
+    display: inline-block;
+}
