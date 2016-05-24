@@ -15,7 +15,14 @@ module.exports.showTest = function showTest (request, reply) {
 }
 
 module.exports.setupTest = function setupTest (request, reply) {
-  request.yar.clear()
+  const payload = request.payload
+
+  console.log(payload)
+
+  if (payload.resetSession) {
+    console.log('resetter session')
+    request.yar.clear()
+  }
 
   reply.redirect('/next')
 }
