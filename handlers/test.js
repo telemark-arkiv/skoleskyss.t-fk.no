@@ -21,7 +21,7 @@ module.exports.setupTest = function setupTest (request, reply) {
 
   if (payload.resetSession) {
     console.log('resetter session')
-    request.yar.clear()
+    request.yar.reset()
   }
 
   reply.redirect('/next')
