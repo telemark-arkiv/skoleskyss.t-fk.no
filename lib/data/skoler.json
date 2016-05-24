@@ -1,96 +1,101 @@
 [
   {
-    "value": "39601",
-    "text": "Bamble videregående skole, avdeling Grasmyr",
-    "id": "39601"
+    "id": "39601",
+    "name": "Bamble videregående skole, avdeling Grasmyr",
+    "address": "Tønderveien 6, 3960 Stathelle"
   },
   {
-    "value": "39602",
-    "text": "Bamble videregående skole, avdeling Croftholmen",
-    "id": "39602"
+    "id": "39602",
+    "name": "Bamble videregående skole, avdeling Croftholmen",
+    "address": "Tostrupsvei 7, 3960 Stathelle"
   },
   {
-    "value": "3802",
-    "text": "Bø videregåande skule",
-    "id": "3802"
+    "id": "3802",
+    "name": "Bø videregåande skule",
+    "address": "Gymnasbakken 23, 3802 Bø"
   },
   {
-    "value": "3733",
-    "text": "Hjalmar Johansen videregående skole, avdeling Fritidsparken",
-    "id": "3733"
+    "id": "3733",
+    "name": "Hjalmar Johansen videregående skole, avdeling Fritidsparken",
+    "address": "Moflatvegen 38, 3733 Skien"
   },
   {
-    "value": "3730",
-    "text": "Hjalmar Johansen videregående skole, avdeling Klosterskogen",
-    "id": "3730"
+    "id": "3730",
+    "name": "Hjalmar Johansen videregående skole, avdeling Klosterskogen",
+    "address": "Olai Skulleruds veg 20, 3730 Skien"
   },
   {
-    "value": "3770",
-    "text": "Kragerø videregående skole",
-    "id": "3770"
+    "id": "3716",
+    "name": "Hjalmar Johansen videregående skole, avdeling Kompetansesenteret",
+    "address": "Jernbanevegen 14, 3716 Skien"
   },
   {
-    "value": "3850",
-    "text": "Kvitsund gymnas",
-    "id": "3850"
+    "id": "3770",
+    "name": "Kragerø videregående skole",
+    "address": "Frydensborgveien 9-11, 3770 Kragerø"
   },
   {
-    "value": "3825",
-    "text": "Nome videregående skole, avdeling Lunde",
-    "id": "3825"
+    "id": "3850",
+    "name": "Kvitsund gymnas",
+    "address": "Jakob Naadlandsveg 2, 3850 Kviteseid"
   },
   {
-    "value": "3830",
-    "text": "Nome videregående skole, avdeling Søve",
-    "id": "3830"
+    "id": "3825",
+    "name": "Nome videregående skole, avdeling Lunde",
+    "address": "Olav Strannas vei 25, 3825 Lunde"
   },
   {
-    "value": "3674",
-    "text": "Notodden videregående skole",
-    "id": "3674"
+    "id": "3830",
+    "name": "Nome videregående skole, avdeling Søve",
+    "address": "Søveveien 8, 3830 Ulefoss"
   },
   {
-    "value": "39181",
-    "text": "Porsgrunn videregående skole, avdeling Nord",
-    "id": "39181"},
-  {
-    "value": "39182",
-    "text": "Porsgrunn videregående skole, avdeling Sør",
-    "id": "39182"
+    "id": "3674",
+    "name": "Notodden videregående skole",
+    "address": "Heddalsveien 4, 3674 Notodden"
   },
   {
-    "value": "3660",
-    "text": "Rjukan videregående skole",
-    "id": "3660"
+    "id": "39181",
+    "name": "Porsgrunn videregående skole, avdeling Nord",
+    "address": "Kjølnes Ring 58, 3918 Porsgrunn"},
+  {
+    "id": "39182",
+    "name": "Porsgrunn videregående skole, avdeling Sør",
+    "address": "Kjølnes Ring 20, 3918 Porsgrunn"
   },
   {
-    "value": "3717",
-    "text": "Skien videregående skole, avdeling Brekkeby",
-    "id": "3717"
+    "id": "3660",
+    "name": "Rjukan videregående skole",
+    "address": "Såheimveien 22, 3660 Rjukan"
   },
   {
-    "value": "3724",
-    "text": "Skien videregående skole, avdeling Prestejordet",
-    "id": "3724"
+    "id": "3717",
+    "name": "Skien videregående skole, avdeling Brekkeby",
+    "address": "Rektor Ørns gate 2, 3717 Skien"
   },
   {
-    "value": "3735",
-    "text": "Skogmo videregående skole",
-    "id": "3735"
+    "id": "3724",
+    "name": "Skien videregående skole, avdeling Prestejordet",
+    "address": "Einar Østvedts gate 12, 3724 Skien"
   },
   {
-    "value": "3722",
-    "text": "Toppidrettsgymnaset i Telemark",
-    "id": "3722"
+    "id": "3735",
+    "name": "Skogmo videregående skole",
+    "address": "Kjørbekkdalen 11, 3735 Skien"
   },
   {
-    "value": "3880",
-    "text": "Vest-Telemark vidaregåande skule, avdeling Dalen",
-    "id": "3880"
+    "id": "3722",
+    "name": "Toppidrettsgymnaset i Telemark",
+    "address": "Fritjof Nansens gate 19C, 3722 Skien"
   },
   {
-    "value": "3840",
-    "text": "Vest-Telemark vidaregåande skule, avdeling Seljord",
-    "id": "3840"
+    "id": "3880",
+    "name": "Vest-Telemark vidaregåande skule, avdeling Dalen",
+    "value": "Storvegen 195, 3880 Dalen"
+  },
+  {
+    "id": "3840",
+    "name": "Vest-Telemark vidaregåande skule, avdeling Seljord",
+    "address": "Brøløsvegen 2, 3840 Seljord"
   }
 ]
