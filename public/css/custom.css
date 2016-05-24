@@ -288,9 +288,9 @@ a:visited {
 }
 
 .logo {
-    width: 3.6rem;
+    width: 3rem;
     height: auto;
     vertical-align: middle;
-    margin-right: 1rem;
+    margin-right: 0.8rem;
     display: inline-block;
 }
