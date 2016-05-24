@@ -14,6 +14,15 @@ const routes = [
   },
   {
     method: 'GET',
+    path: '/bosted',
+    config: {
+      handler: Handlers.showBosted,
+      description: 'Show the bosted pages',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
     path: '/kontaktinformasjon',
     config: {
       handler: Handlers.showKontaktInformasjon,
@@ -77,6 +86,15 @@ const routes = [
   },
   {
     method: 'POST',
+    path: '/next',
+    config: {
+      handler: Handlers.getNext,
+      description: 'Start here if manual',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
     path: '/next',
     config: {
       handler: Handlers.getNext,

@@ -6,10 +6,10 @@ const pkg = require('../package.json')
 module.exports.getNext = function (request, reply) {
   const payload = request.payload
   const yar = request.yar
-  const nextForm = getNextForm({
-    payload: payload,
-    yar: yar
-  })
+  if (payload) {
+    yar.set(payload.stepName, payload)
+  }
+  const nextForm = getNextForm(yar._store)
 
   reply.redirect('/' + nextForm)
 }
@@ -24,6 +24,18 @@ module.exports.showSeOver = function showSeOver (request, reply) {
   }
 
   reply.view('seover', viewOptions)
+}
+
+module.exports.showBosted = function showBosted (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('bosted', viewOptions)
 }
 
 module.exports.showPersonalia = function showPersonalia (request, reply) {
