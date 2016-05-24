@@ -99,12 +99,14 @@ module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
 }
 
 module.exports.showVelgSkole = function showVelgSkole (request, reply) {
+  const skoler = require('../lib/data/skoler.json')
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    skoler: skoler
   }
 
   reply.view('velgskole', viewOptions)

@@ -4,7 +4,9 @@
     </div>
     <form action="/next" method="post">
         <input type="hidden" name="stepName" value="velgskole">
-        <div class="mdl-card__supporting-text mdl-color-text--black"></div>
+        <div class="mdl-card__supporting-text mdl-color-text--black">
+            {{>skole-liste}}
+        </div>
         <div class="mdl-card__actions mdl-card--border">
             <div class="mdl-layout-spacer"></div>
             <button type="submit" title="Gå til neste punkt i søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
