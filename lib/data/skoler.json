@@ -164,7 +164,7 @@
   {
     "id": "3880",
     "name": "Vest-Telemark vidaregåande skule, avdeling Dalen",
-    "value": "Storvegen 195, 3880 Dalen",
+    "address": "Storvegen 195, 3880 Dalen",
     "geo": {
       "lat": "59.44657",
       "lon": "7.98785"
