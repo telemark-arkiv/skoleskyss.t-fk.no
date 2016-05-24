@@ -1,6 +1,27 @@
-<h1>Grunnlag</h1>
+<div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-shadow--2dp">
+    <div class="mdl-card__title mdl-color-text--black">
+        <h1>Grunnlag</h1>
+    </div>
 
-<form action="/next" method="post">
-    <input type="hidden" name="stepName" value="grunnlag">
-    <button type="submit">Neste</button>
-</form>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="grunnlag">
+        <div class="mdl-card__supporting-text mdl-color-text--black">
+            <label for="grunnlagRadio01" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="grunnlag" value="Avstand" id="grunnlagRadio01" class="mdl-radio__button period-selector" required="required">
+                <span class="mdl-radio__label">Avstanden til skolen er over 6 kilometer</span>
+            </label><br/>
+            <label for="grunnlagRadio02" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="grunnlag" value="Båt/Ferge" id="grunnlagRadio02" class="mdl-radio__button period-selector" required="required">
+                <span class="mdl-radio__label">Jeg må ta båt eller ferge for å komme til skolen</span>
+            </label><br/>
+            <label for="grunnlagRadio03" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="grunnlag" value="Annet" id="grunnlagRadio03" class="mdl-radio__button period-selector" required="required">
+                <span class="mdl-radio__label">Andre årsaker</span>
+            </label><br/>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <div class="mdl-layout-spacer"></div>
+            <button type="submit" title="Gå til neste punkt i søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
+        </div>
+    </form>
+</div>
