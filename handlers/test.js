@@ -20,8 +20,23 @@ module.exports.setupTest = function setupTest (request, reply) {
   console.log(payload)
 
   if (payload.resetSession) {
-    console.log('resetter session')
+    console.log('session reset')
     request.yar.reset()
+  }
+
+  if (payload.personNotFound) {
+    console.log('applies not found variable')
+    request.yar.set('dsfNotFound', true)
+  }
+
+  if (payload.personAlreadyApplied) {
+    console.log('applies previous application detected')
+    request.yar.set('previousApplicationDetected', true)
+  }
+
+  if (payload.duplicateApplication) {
+    console.log('applies duplicate application detected')
+    request.yar.set('duplicateApplicationDetected', true)
   }
 
   reply.redirect('/next')
