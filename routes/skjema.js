@@ -59,6 +59,15 @@ const routes = [
   },
   {
     method: 'GET',
+    path: '/velgklasse',
+    config: {
+      handler: Handlers.showVelgKlasse,
+      description: 'Show velg klasse form',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
     path: '/ikkefunnet',
     config: {
       handler: Handlers.showIkkeFunnet,

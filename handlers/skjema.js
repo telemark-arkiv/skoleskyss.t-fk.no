@@ -112,6 +112,18 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
   reply.view('velgskole', viewOptions)
 }
 
+module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('velgklasse', viewOptions)
+}
+
 module.exports.showAlternativtBosted = function showAlternativtBosted (request, reply) {
   const viewOptions = {
     version: pkg.version,
