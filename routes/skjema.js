@@ -94,6 +94,24 @@ const routes = [
     }
   },
   {
+    method: 'GET',
+    path: '/sokttidligere',
+    config: {
+      handler: Handlers.showSoktTidligere,
+      description: 'Start here if manual',
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/soknaduendret',
+    config: {
+      handler: Handlers.showSoknadUendret,
+      description: 'Start here if manual',
+      auth: false
+    }
+  },
+  {
     method: 'POST',
     path: '/next',
     config: {

@@ -147,3 +147,15 @@ module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {
 
   reply.view('sokttidligere', viewOptions)
 }
+
+module.exports.showSoknadUendret = function showSoknadUendret (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('soknaduendret', viewOptions)
+}
