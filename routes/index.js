@@ -17,8 +17,7 @@ const routes = [
     path: '/start',
     config: {
       handler: Handlers.start,
-      description: 'Start here if logged in',
-      auth: false
+      description: 'Start here if logged in'
     }
   },
   {
@@ -26,8 +25,7 @@ const routes = [
     path: '/manuell',
     config: {
       handler: Handlers.manuell,
-      description: 'Start here if manual',
-      auth: false
+      description: 'Start here if manual'
     }
   },
   {

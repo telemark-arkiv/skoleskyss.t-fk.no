@@ -1,5 +1,7 @@
 'use strict'
 
+const jwt = require('jsonwebtoken')
+const config = require('../config')
 const pkg = require('../package.json')
 
 module.exports.getFrontpage = function getFrontpage (request, reply) {
@@ -15,6 +17,8 @@ module.exports.getFrontpage = function getFrontpage (request, reply) {
 }
 
 module.exports.start = function start (request, reply) {
+  const token = request.header.Authorization
+  const decoded = jwt.decode(token, config.SKOLESKYSS_JWT_SECRET)
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -22,7 +26,15 @@ module.exports.start = function start (request, reply) {
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url
   }
+  request.yar.set('dsfData', decoded.data.dsfData)
+  request.yar.set('kontaktOgReservasjonsData', decoded.data.kontaktOgReservasjonsData)
 
+  request.cookieAuth.set({
+    token: token,
+    isAuthenticated: true,
+    data: decoded.data
+  })
+  
   reply.view('index', viewOptions)
 }
 
