@@ -83,5 +83,5 @@ module.exports.setupTest = function setupTest (request, reply) {
     data: data
   })
 
-  reply.redirect('/manuell')
+  reply.redirect('/next')
 }
