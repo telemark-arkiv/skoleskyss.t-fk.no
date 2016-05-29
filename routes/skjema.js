@@ -61,6 +61,14 @@ const routes = [
   },
   {
     method: 'GET',
+    path: '/skoleadresse',
+    config: {
+      handler: Handlers.showSkoleAdresse,
+      description: 'Start here if logged in'
+    }
+  },
+  {
+    method: 'GET',
     path: '/velgklasse',
     config: {
       handler: Handlers.showVelgKlasse,

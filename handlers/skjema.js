@@ -1,6 +1,7 @@
 'use strict'
 
 const getNextForm = require('../lib/get-next-form')
+const getSkipSteps = require('../lib/get-skip-steps')
 const pkg = require('../package.json')
 
 module.exports.getNext = function (request, reply) {
@@ -8,7 +9,12 @@ module.exports.getNext = function (request, reply) {
   const yar = request.yar
   if (payload) {
     yar.set(payload.stepName, payload)
+    const skipSteps = getSkipSteps(yar._store)
+    skipSteps.forEach(function (item) {
+      yar.set(item, true)
+    })
   }
+
   const nextForm = getNextForm(yar._store)
 
   reply.redirect('/' + nextForm)
@@ -147,6 +153,18 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
   }
 
   reply.view('velgskole', viewOptions)
+}
+
+module.exports.showSkoleAdresse = function showSkoleAdresse (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('skoleadresse', viewOptions)
 }
 
 module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {

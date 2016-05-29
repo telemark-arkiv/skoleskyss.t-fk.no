@@ -52,15 +52,9 @@ module.exports.setupTest = function setupTest (request, reply) {
     request.yar.set('korError', true)
   }
 
-  if (payload.personAlreadyApplied) {
-    console.log('applies previous application detected')
-    request.yar.set('previousApplicationDetected', true)
-  }
+  request.yar.set('tidligereSoknad', payload.personAlreadyApplied || false)
 
-  if (payload.duplicateApplication) {
-    console.log('applies duplicate application detected')
-    request.yar.set('duplicateApplicationDetected', true)
-  }
+  request.yar.set('duplikatSoknad', payload.duplicateApplication || false)
 
   const tokenOptions = {
     expiresIn: '1h',
