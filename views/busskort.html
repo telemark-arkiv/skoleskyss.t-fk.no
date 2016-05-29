@@ -7,7 +7,19 @@
     <form action="/next" method="post">
         <input type="hidden" name="stepName" value="busskort">
         <div class="mdl-card__supporting-text mdl-color-text--black">
-            <input type="text" name="busskortNummer" pattern="\d*" maxlength="16" placeholder="Skriv inn busskortnummer. Kun tall">
+            <div class="mdl-typography--headline margin-top-10">Har du fått busskort av oss tidligere?</div>
+            <label for="busskortRadio01" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="mottattBusskort" value="ja" id="busskortRadio01" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">Ja</span>
+            </label><br />
+            <label for="busskortRadio02" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="mottattBusskort" value="nei" id="busskortRadio02" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">Nei</span>
+            </label><br />
+            <label for="busskortRadio03" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="mottattBusskort" value="mistet" id="busskortRadio03" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">Ja, men har mistet det</span>
+            </label><br />
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <div class="mdl-layout-spacer"></div>

@@ -38,6 +38,30 @@ module.exports.showBosted = function showBosted (request, reply) {
   reply.view('bosted', viewOptions)
 }
 
+module.exports.showBostedHybel = function showBostedHybel (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('bostedhybel', viewOptions)
+}
+
+module.exports.showBostedDelt = function showBostedDelt (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('bosteddelt', viewOptions)
+}
+
 module.exports.showPersonalia = function showPersonalia (request, reply) {
   const viewOptions = {
     version: pkg.version,
@@ -86,6 +110,18 @@ module.exports.showBusskort = function showBusskort (request, reply) {
   reply.view('busskort', viewOptions)
 }
 
+module.exports.showBusskortNummer = function showBusskortNummer (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('busskortnummer', viewOptions)
+}
+
 module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
   const viewOptions = {
     version: pkg.version,
@@ -122,18 +158,6 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   }
 
   reply.view('velgklasse', viewOptions)
-}
-
-module.exports.showAlternativtBosted = function showAlternativtBosted (request, reply) {
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
-
-  reply.view('alternativtbosted', viewOptions)
 }
 
 module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {

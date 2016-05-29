@@ -35,6 +35,9 @@
 ## Skole
 - Velg skole man skal gå på
 
+### Adresse for skole
+- Vises for de som skal gå på skole utenfor Telemark
+
 ## Klasse
 - Velg klasse man skal gå i
 
@@ -49,11 +52,12 @@
     - Krever innsendt dokumentasjon
 
 ## Busskort
-- Har man busskort
-  - Ja
-    - Gå til busskortnummer
-  - Nei
-  - Har mistet det
+- Vises for de som skal gå på skole i Telemark
+  - Har man busskort
+    - Ja
+      - Gå til busskortnummer
+    - Nei
+    - Har mistet det
 
 ## Busskortnummer
 - Fyll inn busskortnummer

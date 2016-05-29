@@ -1,0 +1,17 @@
+<div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-shadow--2dp">
+
+    <div class="mdl-card__title mdl-color-text--black">
+        <h1>Busskortnummer</h1>
+    </div>
+
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="busskortnummer">
+        <div class="mdl-card__supporting-text mdl-color-text--black">
+            <input type="text" name="busskortNummer" pattern="\d*" maxlength="16" placeholder="Skriv inn busskortnummer. Kun tall">
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <div class="mdl-layout-spacer"></div>
+            <button type="submit" title="Gå til neste punkt i søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
+        </div>
+    </form>
+</div>
