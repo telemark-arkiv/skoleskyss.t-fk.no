@@ -27,14 +27,13 @@ module.exports.start = function start (request, reply) {
     githubUrl: pkg.repository.url
   }
   request.yar.set('dsfData', decoded.data.dsfData)
-  request.yar.set('kontaktOgReservasjonsData', decoded.data.kontaktOgReservasjonsData)
+  request.yar.set('korData', decoded.data.korData)
 
   request.cookieAuth.set({
     token: token,
     isAuthenticated: true,
     data: decoded.data
   })
-  
   reply.view('index', viewOptions)
 }
 

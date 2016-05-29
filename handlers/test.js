@@ -32,7 +32,7 @@ module.exports.setupTest = function setupTest (request, reply) {
     KOMNR: payload.KOMNR,
     BRUK: payload.BRUK
   }
-  const kontaktOgReservasjonsData = {
+  const korData = {
     Mobiltelefonnummer: payload.Mobiltelefonnummer,
     Epostadresse: payload.Epostadresse
   }
@@ -42,9 +42,14 @@ module.exports.setupTest = function setupTest (request, reply) {
     request.yar.reset()
   }
 
-  if (payload.personNotFound) {
-    console.log('applies not found variable')
-    request.yar.set('dsfNotFound', true)
+  if (payload.dsfError) {
+    console.log('applies dsfError')
+    request.yar.set('dsfError', true)
+  }
+
+  if (payload.korError) {
+    console.log('applies korError')
+    request.yar.set('korError', true)
   }
 
   if (payload.personAlreadyApplied) {
@@ -56,18 +61,21 @@ module.exports.setupTest = function setupTest (request, reply) {
     console.log('applies duplicate application detected')
     request.yar.set('duplicateApplicationDetected', true)
   }
+
   const tokenOptions = {
     expiresIn: '1h',
     issuer: 'https://auth.t-fk.no'
   }
+
   const data = {
     dsfData: dsfData,
-    kontaktOgReservasjonsData: kontaktOgReservasjonsData
+    korData: korData
   }
+
   const token = jwt.sign(data, config.SKOLESKYSS_JWT_SECRET, tokenOptions)
 
   request.yar.set('dsfData', data.dsfData)
-  request.yar.set('kontaktOgReservasjonsData', data.kontaktOgReservasjonsData)
+  request.yar.set('korData', data.korData)
 
   request.cookieAuth.set({
     token: token,
