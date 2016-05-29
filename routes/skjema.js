@@ -116,6 +116,14 @@ const routes = [
     }
   },
   {
+    method: 'GET',
+    path: '/kvittering',
+    config: {
+      handler: Handlers.showKvittering,
+      description: 'Vis kvittering'
+    }
+  },
+  {
     method: 'POST',
     path: '/next',
     config: {

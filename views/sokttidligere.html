@@ -2,7 +2,16 @@
     <div class="mdl-card__title mdl-color-text--black">
         <h1>Søkt tidligere</h1>
     </div>
+    <form action="/next" method="post">
+    <input type="hidden" name="stepName" value="sokttidligere">
     <div class="mdl-card__supporting-text mdl-color-text--black">
-        Du har søkt tidligere
+        Vi har registrert at du har søkt om skoleskyss tidligere for dette skoleåret.
+        <br/>
+        Dersom du ikke har nye opplysninger vil resultatet av saksbehandlingen bli den samme.
     </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <div class="mdl-layout-spacer"></div>
+        <button type="submit" title="Gå til neste punkt i søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
+    </div>
+    </form>
 </div>

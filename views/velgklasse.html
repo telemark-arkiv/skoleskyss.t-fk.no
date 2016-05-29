@@ -3,9 +3,25 @@
         <h1>Velg klasse</h1>
     </div>
     <form action="/next" method="post">
-        <input type="hidden" name="stepName" value="velgklass">
+        <input type="hidden" name="stepName" value="velgklasse">
         <div class="mdl-card__supporting-text mdl-color-text--black">
-            Velg klasse
+            <div class="mdl-typography--headline margin-top-10">Hvilket klassetrinn skal du gå</div>
+            <label for="klasseRadio01" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="klassetrinn" value="VG1" id="klasseRadio01" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">VG1</span>
+            </label><br />
+            <label for="klasseRadio02" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="klassetrinn" value="VG2" id="klasseRadio02" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">VG2</span>
+            </label><br />
+            <label for="klasseRadio03" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="klassetrinn" value="VG3" id="klasseRadio03" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">VG3</span>
+            </label><br />
+            <label for="klasseRadio04" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="klassetrinn" value="VG4" id="klasseRadio04" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">VG4</span>
+            </label><br />
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <div class="mdl-layout-spacer"></div>

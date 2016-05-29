@@ -32,7 +32,8 @@ module.exports.showBosted = function showBosted (request, reply) {
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    folkeregistrertAdresse: 'Ole jensensvei 87, 1732 Høtten'
   }
 
   reply.view('bosted', viewOptions)
@@ -182,4 +183,16 @@ module.exports.showSoknadUendret = function showSoknadUendret (request, reply) {
   }
 
   reply.view('soknaduendret', viewOptions)
+}
+
+module.exports.showKvittering = function showKvittering (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  reply.view('kvittering', viewOptions)
 }

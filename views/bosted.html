@@ -5,7 +5,24 @@
 
     <form action="/next" method="post">
         <input type="hidden" name="stepName" value="bosted">
-        <div class="mdl-card__supporting-text mdl-color-text--black"></div>
+        <div class="mdl-card__supporting-text mdl-color-text--black">
+            <div class="mdl-typography--headline margin-top-10">Hvor skal du bo i skoleperioden?</div>
+            <div>
+                Din folkeregistrerte adresse er {{folkeregistrertAdresse}}
+            </div>
+            <label for="bostedRadio01" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="bosted" value="folkeregistrert" id="bostedRadio01" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">Jeg skal bo på min folkeregistrerte adresse</span>
+            </label><br />
+            <label for="bostedRadio02" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="bosted" value="hybel" id="bostedRadio02" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">Jeg skal bo på hybel</span>
+            </label><br />
+            <label for="bostedRadio03" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                <input type="radio" name="bosted" value="delt" id="bostedRadio03" class="mdl-radio__button warning-type-selector" required="required">
+                <span class="mdl-radio__label">Jeg har delt bosted</span>
+            </label><br />
+        </div>
         <div class="mdl-card__actions mdl-card--border">
             <div class="mdl-layout-spacer"></div>
             <button type="submit" title="Gå til neste punkt i søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
