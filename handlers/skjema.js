@@ -3,6 +3,8 @@
 const getNextForm = require('../lib/get-next-form')
 const getSkipSteps = require('../lib/get-skip-steps')
 const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
+const unwrapGeocoded = require('../lib/unwrap-geocoded')
+const getSkoleFromId = require('../lib/get-skole-from-id')
 const pkg = require('../package.json')
 
 module.exports.getNext = function (request, reply) {
@@ -12,7 +14,7 @@ module.exports.getNext = function (request, reply) {
     yar.set(payload.stepName, payload)
     const skipSteps = getSkipSteps(yar._store)
     skipSteps.forEach(function (item) {
-      yar.set(item, true)
+      yar.set(item, false)
     })
   }
 
@@ -154,6 +156,10 @@ module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
 }
 
 module.exports.showVelgSkole = function showVelgSkole (request, reply) {
+  const yar = request.yar
+  const sessionId = request.yar.id
+  const hybel = yar.get('bostedhybel')
+  const delt = yar.get('bosteddelt')
   const skoler = require('../lib/data/skoler.json')
   const viewOptions = {
     version: pkg.version,
@@ -162,6 +168,18 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
     skoler: skoler
+  }
+
+  if (hybel || delt) {
+    const key = hybel ? 'see-hybel' : 'see-delt'
+    const data = hybel || delt
+    request.seneca.act({
+      role: 'lookup',
+      cmd: 'seeiendom',
+      sessionId: sessionId,
+      key: key,
+      address: extractAdressToGeocode(data)
+    })
   }
 
   reply.view('velgskole', viewOptions)
@@ -180,6 +198,11 @@ module.exports.showSkoleAdresse = function showSkoleAdresse (request, reply) {
 }
 
 module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
+  const yar = request.yar
+  const sessionId = request.yar.id
+  const valgtskole = yar.get('velgskole')
+  const skole = getSkoleFromId(valgtskole.skole)
+  const destination = unwrapGeocoded(skole)
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -188,7 +211,21 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
     githubUrl: pkg.repository.url
   }
 
-  reply.view('velgklasse', viewOptions)
+  request.seneca.act({role: 'session', cmd: 'get', sessionId: sessionId}, function (error, data) {
+    data.forEach(function (item) {
+      if (/^see/.test(item.key)) {
+        request.seneca.act({
+          role: 'lookup',
+          cmd: 'distance',
+          key: 'distance-' + item.key,
+          sessionId: sessionId,
+          origin: unwrapGeocoded(item.data),
+          destination: destination
+        })
+      }
+    })
+    reply.view('velgklasse', viewOptions)
+  })
 }
 
 module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {
