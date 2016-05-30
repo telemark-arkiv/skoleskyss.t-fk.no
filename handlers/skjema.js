@@ -2,6 +2,7 @@
 
 const getNextForm = require('../lib/get-next-form')
 const getSkipSteps = require('../lib/get-skip-steps')
+const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
 const pkg = require('../package.json')
 
 module.exports.getNext = function (request, reply) {
@@ -33,14 +34,25 @@ module.exports.showSeOver = function showSeOver (request, reply) {
 }
 
 module.exports.showBosted = function showBosted (request, reply) {
+  const yar = request.yar
+  const sessionId = request.yar.id
+  const dsfData = yar.get('dsfData')
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
-    folkeregistrertAdresse: 'Ole jensensvei 87, 1732 Høtten'
+    folkeregistrertAdresse: dsfData.ADR + ', ' + dsfData.POSTN + ' ' + dsfData.POSTS
   }
+
+  request.seneca.act({
+    role: 'lookup',
+    cmd: 'seeiendom',
+    sessionId: sessionId,
+    key: 'see-dsf',
+    address: extractAdressToGeocode(dsfData)
+  })
 
   reply.view('bosted', viewOptions)
 }
