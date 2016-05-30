@@ -212,18 +212,23 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   }
 
   request.seneca.act({role: 'session', cmd: 'get', sessionId: sessionId}, function (error, data) {
-    data.forEach(function (item) {
-      if (/^see/.test(item.key)) {
-        request.seneca.act({
-          role: 'lookup',
-          cmd: 'distance',
-          key: 'distance-' + item.key,
-          sessionId: sessionId,
-          origin: unwrapGeocoded(item.data),
-          destination: destination
-        })
-      }
-    })
+    if (error) {
+      console.error(error)
+    } else {
+      data.forEach(function (item) {
+        if (/^see/.test(item.key)) {
+          request.seneca.act({
+            role: 'lookup',
+            cmd: 'distance',
+            key: 'distance-' + item.key,
+            sessionId: sessionId,
+            origin: unwrapGeocoded(item.data),
+            destination: destination
+          })
+        }
+      })
+    }
+
     reply.view('velgklasse', viewOptions)
   })
 }
