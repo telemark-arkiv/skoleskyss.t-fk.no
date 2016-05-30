@@ -18,6 +18,13 @@ services_session:
   restart: always
   net: container:skoleskyss_web
 
+services_seeiendom:
+  image: telemark/tfk-seneca-seeiendom-lookup
+  container_name: services_seeiendom
+  env_file: skoleskyss.env
+  restart: always
+  net: container:skoleskyss_web
+
 skoleskyss_web:
   image: telemark/skoleskyss.t-fk.no
   container_name: skoleskyss
