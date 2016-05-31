@@ -32,6 +32,13 @@ services_distance:
   restart: always
   net: container:skoleskyss_web
 
+services_log:
+  image: telemark/tfk-seneca-log-external
+  container_name: services_log
+  env_file: skoleskyss.env
+  restart: always
+  net: container:skoleskyss_web
+
 services_dispatcher:
   image: telemark/tfk-seneca-skoleskyss-dispatcher
   container_name: services_dispatcher
