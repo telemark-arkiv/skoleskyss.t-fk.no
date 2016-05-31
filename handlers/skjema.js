@@ -274,6 +274,8 @@ module.exports.showKvittering = function showKvittering (request, reply) {
     githubUrl: pkg.repository.url
   }
 
+  request.cookieAuth.clear()
+
   reply.view('kvittering', viewOptions)
 }
 
