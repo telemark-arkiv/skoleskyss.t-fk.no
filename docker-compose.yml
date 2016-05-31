@@ -39,6 +39,13 @@ services_log:
   restart: always
   net: container:skoleskyss_web
 
+services_queue:
+  image: telemark/tfk-seneca-queue
+  container_name: skoleskyss_services_queue
+  env_file: skoleskyss.env
+  restart: always
+  net: container:skoleskyss_web
+
 services_dispatcher:
   image: telemark/tfk-seneca-skoleskyss-dispatcher
   container_name: skoleskyss_services_dispatcher

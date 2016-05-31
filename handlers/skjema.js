@@ -1,9 +1,5 @@
 'use strict'
 
-const mongojs = require('mongojs')
-const config = require('../config')
-const dbqueue = mongojs(config.SKOLESKYSS_DB_CONNECTION_QUEUE)
-const queue = dbqueue.collection('queue')
 const getNextForm = require('../lib/get-next-form')
 const getSkipSteps = require('../lib/get-skip-steps')
 const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
@@ -296,15 +292,9 @@ module.exports.doSubmit = function doSubmit (request, reply) {
     if (error) {
       console.error(error)
     } else {
-      queue.save(document, function (err, data) {
-        if (err) {
-          console.log(err)
-        } else {
-          request.cookieAuth.clear()
-          request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
-          reply.redirect('/kvittering', viewOptions)
-        }
-      })
+      request.seneca.act({role: 'queue', cmd: 'add', data: document})
+      request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
+      reply.redirect('/kvittering', viewOptions)
     }
   })
 }
