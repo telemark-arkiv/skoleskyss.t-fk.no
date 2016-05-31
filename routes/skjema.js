@@ -128,7 +128,8 @@ const routes = [
     path: '/kvittering',
     config: {
       handler: Handlers.showKvittering,
-      description: 'Vis kvittering'
+      description: 'Vis kvittering',
+      auth: false
     }
   },
   {
@@ -145,6 +146,14 @@ const routes = [
     config: {
       handler: Handlers.getNext,
       description: 'Start here if manual'
+    }
+  },
+  {
+    method: 'POST',
+    path: '/submit',
+    config: {
+      handler: Handlers.doSubmit,
+      description: 'Submit the form'
     }
   }
 ]

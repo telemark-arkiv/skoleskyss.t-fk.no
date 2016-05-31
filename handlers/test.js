@@ -38,17 +38,17 @@ module.exports.setupTest = function setupTest (request, reply) {
   }
 
   if (payload.resetSession) {
-    console.log('session reset')
+    console.log('Testsettings =======> session reset')
     request.yar.reset()
   }
 
   if (payload.dsfError) {
-    console.log('applies dsfError')
+    console.log('Testsettings =======> applies dsfError')
     request.yar.set('dsfError', true)
   }
 
   if (payload.korError) {
-    console.log('applies korError')
+    console.log('Testsettings =======> applies korError')
     request.yar.set('korError', true)
   }
 

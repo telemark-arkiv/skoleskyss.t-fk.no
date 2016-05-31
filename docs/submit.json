@@ -1,0 +1,160 @@
+{
+  "tidligereSoknad": false,
+  "duplikatSoknad": false,
+  "dsfData": {
+    "NAVN": "Geir Gåsodden",
+    "NAVN-S": "Gåsodden",
+    "NAVN-M": "",
+    "NAVN-F": "Geir",
+    "FODT": "181171",
+    "PERS": "47130",
+    "ADR": "Kjærlighetsstien 24",
+    "POSTN": "3681",
+    "POSTS": "Notodden",
+    "GARD": "",
+    "KOMNR": "",
+    "BRUK": ""
+  },
+  "korData": {
+    "Mobiltelefonnummer": "95 55 27 59",
+    "Epostadresse": "geir.gasodden@t-fk.no"
+  },
+  "bosted": {
+    "stepName": "bosted",
+    "bosted": "hybel"
+  },
+  "bosteddelt": false,
+  "soknaduendret": false,
+  "sokttidligere": false,
+  "bostedhybel": {
+    "stepName": "bostedhybel",
+    "ADR": "Mellomgata 2",
+    "POSTN": "3912",
+    "POSTS": "Porsgrunn",
+    "GARD": "",
+    "BRUK": "",
+    "KOMNR": ""
+  },
+  "velgskole": {
+    "stepName": "velgskole",
+    "skole": "3825"
+  },
+  "skoleadresse": false,
+  "velgklasse": {
+    "stepName": "velgklasse",
+    "klassetrinn": "VG2"
+  },
+  "grunnlag": {
+    "stepName": "grunnlag",
+    "grunnlag": "Avstand"
+  },
+  "busskort": {
+    "stepName": "busskort",
+    "mottattBusskort": "nei"
+  },
+  "busskortnummer": false,
+  "see-dsf": {
+    "_id": "574d7d2866a6b69575091116",
+    "key": "see-dsf",
+    "sessionId": "5c74f977-9437-4ad5-9573-7ab11e007ac7",
+    "data": {
+      "ID": "81009640",
+      "TITTEL": "0807-42/93",
+      "TITTEL2": "NOTODDEN-42/93",
+      "TITTEL3": "42/93, NOTODDEN",
+      "TITTEL4": "KJÆRLIGHETSSTIEN 24, 3681 NOTODDEN-42/93",
+      "NAVN": "0807-42/93",
+      "TILHOERIGHET": "NOTODDEN, NOTODDEN, TELEMARK",
+      "GARDSNR": "42",
+      "BRUKSNR": "93",
+      "FESTENR": "0",
+      "SEKSJONSNR": "0",
+      "KOMMUNENR": "0807",
+      "KOMMUNENAVN": "NOTODDEN",
+      "VEGADRESSE": "KJÆRLIGHETSSTIEN 24, 3681 NOTODDEN",
+      "VEGADRESSE2": "KJÆRLIGHETSSTIEN 24",
+      "LATITUDE": "6602713.68",
+      "LONGITUDE": "516089.31",
+      "FYLKESNR": "08",
+      "FYLKESNAVN": "TELEMARK",
+      "OBJEKTTYPE": "EIENDOM",
+      "KILDE": "EIENDOM",
+      "geocoded": {
+        "lat": 59.5624081592,
+        "lon": 9.2847034557
+      }
+    }
+  },
+  "see-hybel": {
+    "_id": "574d7d4266a6b69575091117",
+    "key": "see-hybel",
+    "sessionId": "5c74f977-9437-4ad5-9573-7ab11e007ac7",
+    "data": {
+      "ID": "41061172",
+      "TITTEL": "0805-200/1809",
+      "TITTEL2": "PORSGRUNN-200/1809",
+      "TITTEL3": "200/1809, PORSGRUNN",
+      "TITTEL4": "MELLOMGATA 2, 3912 PORSGRUNN-200/1809",
+      "NAVN": "0805-200/1809",
+      "TILHOERIGHET": "PORSGRUNN, PORSGRUNN, TELEMARK",
+      "GARDSNR": "200",
+      "BRUKSNR": "1809",
+      "FESTENR": "0",
+      "SEKSJONSNR": "0",
+      "KOMMUNENR": "0805",
+      "KOMMUNENAVN": "PORSGRUNN",
+      "VEGADRESSE": "MELLOMGATA 2, 3912 PORSGRUNN",
+      "VEGADRESSE2": "MELLOMGATA 2",
+      "LATITUDE": "6557341.77",
+      "LONGITUDE": "537519.82",
+      "FYLKESNR": "08",
+      "FYLKESNAVN": "TELEMARK",
+      "OBJEKTTYPE": "EIENDOM",
+      "KILDE": "EIENDOM",
+      "geocoded": {
+        "lat": 59.153615215,
+        "lon": 9.655991268
+      }
+    }
+  },
+  "distance-see-hybel": {
+    "_id": "574d7d4b66a6b69575091118",
+    "key": "distance-see-hybel",
+    "sessionId": "5c74f977-9437-4ad5-9573-7ab11e007ac7",
+    "data": {
+      "index": null,
+      "distance": "43.3 km",
+      "distanceValue": 43291,
+      "duration": "9 hours 9 mins",
+      "durationValue": 32911,
+      "origin": "Mellomgata 3, 3912 Porsgrunn, Norway",
+      "destination": "Olav Strannas veg 25, 3825 Lunde, Norway",
+      "mode": "walking",
+      "units": "metric",
+      "language": "en",
+      "avoid": null,
+      "sensor": false,
+      "directionsEmbedUrl": "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAu4oe2bKCeP4AnAyo78KL_XZvrS-WVIcw&mode=walking&origin=59.153615215,9.655991268&destination=59.30083,9.10652"
+    }
+  },
+  "distance-see-dsf": {
+    "_id": "574d7d4b66a6b69575091119",
+    "key": "distance-see-dsf",
+    "sessionId": "5c74f977-9437-4ad5-9573-7ab11e007ac7",
+    "data": {
+      "index": null,
+      "distance": "45.6 km",
+      "distanceValue": 45620,
+      "duration": "9 hours 36 mins",
+      "durationValue": 34566,
+      "origin": "Kjærlighetsstien 19, 3681 Notodden, Norway",
+      "destination": "Olav Strannas veg 25, 3825 Lunde, Norway",
+      "mode": "walking",
+      "units": "metric",
+      "language": "en",
+      "avoid": null,
+      "sensor": false,
+      "directionsEmbedUrl": "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAu4oe2bKCeP4AnAyo78KL_XZvrS-WVIcw&mode=walking&origin=59.5624081592,9.2847034557&destination=59.30083,9.10652"
+    }
+  }
+}

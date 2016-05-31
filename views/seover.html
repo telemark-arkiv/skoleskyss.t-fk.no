@@ -2,14 +2,14 @@
     <div class="mdl-card__title mdl-color-text--black">
         <h1>Se over før innsending</h1>
     </div>
-    <form action="/next" method="post">
+    <form action="/submit" method="post">
         <input type="hidden" name="stepName" value="seover">
     <div class="mdl-card__supporting-text mdl-color-text--black">
-        Innhold man skal se over
+        {{document}}
     </div>
     <div class="mdl-card__actions mdl-card--border">
         <div class="mdl-layout-spacer"></div>
-        <button type="submit" title="Gå til neste punkt i søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
+        <button type="submit" title="Send inn søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
     </div>
     </form>
 </div>

@@ -1,10 +1,15 @@
 'use strict'
 
+const mongojs = require('mongojs')
+const config = require('../config')
+const dbqueue = mongojs(config.SKOLESKYSS_DB_CONNECTION_QUEUE)
+const queue = dbqueue.collection('queue')
 const getNextForm = require('../lib/get-next-form')
 const getSkipSteps = require('../lib/get-skip-steps')
 const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
 const unwrapGeocoded = require('../lib/unwrap-geocoded')
 const getSkoleFromId = require('../lib/get-skole-from-id')
+const prepareDataForSubmit = require('../lib/prepare-data-for-submit')
 const pkg = require('../package.json')
 
 module.exports.getNext = function (request, reply) {
@@ -24,7 +29,7 @@ module.exports.getNext = function (request, reply) {
 }
 
 module.exports.showSeOver = function showSeOver (request, reply) {
-  const viewOptions = {
+  var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
@@ -32,7 +37,14 @@ module.exports.showSeOver = function showSeOver (request, reply) {
     githubUrl: pkg.repository.url
   }
 
-  reply.view('seover', viewOptions)
+  prepareDataForSubmit(request, function (error, document) {
+    if (error) {
+      console.error(error)
+    } else {
+      viewOptions.document = JSON.stringify(document, null, 2)
+    }
+    reply.view('seover', viewOptions)
+  })
 }
 
 module.exports.showBosted = function showBosted (request, reply) {
@@ -267,4 +279,32 @@ module.exports.showKvittering = function showKvittering (request, reply) {
   }
 
   reply.view('kvittering', viewOptions)
+}
+
+module.exports.doSubmit = function doSubmit (request, reply) {
+  const yar = request.yar
+  const sessionId = yar.id
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  prepareDataForSubmit(request, function (error, document) {
+    if (error) {
+      console.error(error)
+    } else {
+      queue.save(document, function (err, data) {
+        if (err) {
+          console.log(err)
+        } else {
+          request.cookieAuth.clear()
+          request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
+          reply.redirect('/kvittering', viewOptions)
+        }
+      })
+    }
+  })
 }
