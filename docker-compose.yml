@@ -6,49 +6,49 @@ sessionserver:
 
 services_base:
   image: telemark/tfk-seneca-base
-  container_name: services_base
+  container_name: skoleskyss_services_base
   env_file: skoleskyss.env
   restart: always
   net: container:skoleskyss_web
 
 services_session:
   image: telemark/tfk-seneca-session
-  container_name: services_session
+  container_name: skoleskyss_services_session
   env_file: skoleskyss.env
   restart: always
   net: container:skoleskyss_web
 
 services_seeiendom:
   image: telemark/tfk-seneca-seeiendom-lookup
-  container_name: services_seeiendom
+  container_name: skoleskyss_services_seeiendom
   env_file: skoleskyss.env
   restart: always
   net: container:skoleskyss_web
 
 services_distance:
   image: telemark/tfk-seneca-walking-distance
-  container_name: services_distance
+  container_name: skoleskyss_services_distance
   env_file: skoleskyss.env
   restart: always
   net: container:skoleskyss_web
 
 services_log:
   image: telemark/tfk-seneca-log-external
-  container_name: services_log
+  container_name: skoleskyss_services_log
   env_file: skoleskyss.env
   restart: always
   net: container:skoleskyss_web
 
 services_dispatcher:
   image: telemark/tfk-seneca-skoleskyss-dispatcher
-  container_name: services_dispatcher
+  container_name: skoleskyss_services_dispatcher
   env_file: skoleskyss.env
   restart: always
   net: container:skoleskyss_web
 
 skoleskyss_web:
   image: telemark/skoleskyss.t-fk.no
-  container_name: skoleskyss
+  container_name: skoleskyss_web
   env_file: skoleskyss.env
   restart: always
   links:
