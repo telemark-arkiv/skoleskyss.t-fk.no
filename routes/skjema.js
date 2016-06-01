@@ -179,6 +179,14 @@ const routes = [
       handler: Handlers.doSubmit,
       description: 'Submit the form'
     }
+  },
+  {
+    method: 'GET',
+    path: '/avbrutt',
+    config: {
+      handler: Handlers.showAvbrutt,
+      description: 'Avbryter søknaden'
+    }
   }
 ]
 

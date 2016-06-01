@@ -21,8 +21,33 @@ module.exports.getNext = function (request, reply) {
   }
 
   const nextForm = getNextForm(yar._store)
-
-  reply.redirect('/' + nextForm)
+  
+  if (payload && payload.stepName === 'velgklasse') {
+    prepareDataForSubmit(request, function (error, document) {
+      if (error) {
+        reply(error)
+      } else {
+        const dsfData = yar.get('dsfData')
+        const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
+        const duplicateData = prepareDuplicateData(document)
+        request.seneca.act({role: 'duplicate', cmd: 'check', duplicateId: fodselsNummer, duplicateData: duplicateData}, function checkDuplicated (error, data) {
+          if (error) {
+            reply(error)
+          } else {
+            if (data.duplicate || yar.get('duplikatSoknad')) {
+              request.yar.set('duplikatSoknad', true)
+              reply.redirect('/soknaduendret')
+            } else {
+              request.yar.set('duplikatSoknad', false)
+              reply.redirect('/' + nextForm)
+            }
+          }
+        })
+      }
+    })
+  } else {
+    reply.redirect('/' + nextForm)
+  }
 }
 
 module.exports.showSeOver = function showSeOver (request, reply) {
@@ -357,4 +382,22 @@ module.exports.checkConfirm = function checkConfirm (request, reply) {
   } else {
     reply.redirect('/uriktigeopplysninger')
   }
+}
+
+module.exports.showAvbrutt = function showAvbrutt (request, reply) {
+  const yar = request.yar
+  const sessionId = yar.id
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+
+  request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
+
+  request.cookieAuth.clear()
+
+  reply.view('avbrutt', viewOptions)
 }
