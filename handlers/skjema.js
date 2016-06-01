@@ -299,7 +299,7 @@ module.exports.doSubmit = function doSubmit (request, reply) {
     } else {
       const duplicateData = prepareDuplicateData(document)
       request.seneca.act({role: 'queue', cmd: 'add', data: document})
-      request.seneca.act({role: 'duplicate', cmd: 'set', duplicateId: fodselsNummer, data:duplicateData})
+      request.seneca.act({role: 'duplicate', cmd: 'set', duplicateId: fodselsNummer, data: duplicateData})
       request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
       reply.redirect('/kvittering', viewOptions)
     }
@@ -339,22 +339,19 @@ module.exports.checkConfirm = function checkConfirm (request, reply) {
   const yar = request.yar
   const dsfData = yar.get('dsfData')
   const payload = request.payload
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
   const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
 
   if (payload.confirmed === 'ja') {
     request.seneca.act({role: 'duplicate', cmd: 'check', duplicateId: fodselsNummer}, function checkDuplicated (error, data) {
-      if (data.duplicate || yar.get('tidligereSoknad')) {
-        request.yar.set('tidligereSoknad', true)
-        reply.redirect('/sokttidligere')
+      if (error) {
+        reply(error)
       } else {
-        reply.redirect('/next')
+        if (data.duplicate || yar.get('tidligereSoknad')) {
+          request.yar.set('tidligereSoknad', true)
+          reply.redirect('/sokttidligere')
+        } else {
+          reply.redirect('/next')
+        }
       }
     })
   } else {
