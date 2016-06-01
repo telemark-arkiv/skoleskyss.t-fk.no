@@ -6,6 +6,7 @@ const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
 const unwrapGeocoded = require('../lib/unwrap-geocoded')
 const getSkoleFromId = require('../lib/get-skole-from-id')
 const prepareDataForSubmit = require('../lib/prepare-data-for-submit')
+const prepareDuplicateData = require('../lib/prepare-data-for-duplicates')
 const pkg = require('../package.json')
 
 module.exports.getNext = function (request, reply) {
@@ -282,6 +283,30 @@ module.exports.showKvittering = function showKvittering (request, reply) {
 module.exports.doSubmit = function doSubmit (request, reply) {
   const yar = request.yar
   const sessionId = yar.id
+  const dsfData = yar.get('dsfData')
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+  const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
+
+  prepareDataForSubmit(request, function (error, document) {
+    if (error) {
+      console.error(error)
+    } else {
+      const duplicateData = prepareDuplicateData(document)
+      request.seneca.act({role: 'queue', cmd: 'add', data: document})
+      request.seneca.act({role: 'duplicate', cmd: 'set', duplicateId: fodselsNummer, data:duplicateData})
+      request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
+      reply.redirect('/kvittering', viewOptions)
+    }
+  })
+}
+
+module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (request, reply) {
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -290,13 +315,49 @@ module.exports.doSubmit = function doSubmit (request, reply) {
     githubUrl: pkg.repository.url
   }
 
-  prepareDataForSubmit(request, function (error, document) {
-    if (error) {
-      console.error(error)
-    } else {
-      request.seneca.act({role: 'queue', cmd: 'add', data: document})
-      request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
-      reply.redirect('/kvittering', viewOptions)
-    }
-  })
+  request.cookieAuth.clear()
+
+  reply.view('uriktigeopplysninger', viewOptions)
+}
+
+module.exports.showConfirm = function showConfirm (request, reply) {
+  const yar = request.yar
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url,
+    dsfData: yar.get('dsfData'),
+    korData: yar.get('korData')
+  }
+
+  reply.view('confirm', viewOptions)
+}
+
+module.exports.checkConfirm = function checkConfirm (request, reply) {
+  const yar = request.yar
+  const dsfData = yar.get('dsfData')
+  const payload = request.payload
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url
+  }
+  const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
+
+  if (payload.confirmed === 'ja') {
+    request.seneca.act({role: 'duplicate', cmd: 'check', duplicateId: fodselsNummer}, function checkDuplicated (error, data) {
+      if (data.duplicate || yar.get('tidligereSoknad')) {
+        request.yar.set('tidligereSoknad', true)
+        reply.redirect('/sokttidligere')
+      } else {
+        reply.redirect('/next')
+      }
+    })
+  } else {
+    reply.redirect('/uriktigeopplysninger')
+  }
 }

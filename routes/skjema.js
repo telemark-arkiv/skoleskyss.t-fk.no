@@ -133,6 +133,30 @@ const routes = [
     }
   },
   {
+    method: 'GET',
+    path: '/uriktigeopplysninger',
+    config: {
+      handler: Handlers.showUriktigeOpplysninger,
+      description: 'Show page for uriktige opplysninger'
+    }
+  },
+  {
+    method: 'GET',
+    path: '/confirm',
+    config: {
+      handler: Handlers.showConfirm,
+      description: 'Start here if manual'
+    }
+  },
+  {
+    method: 'POST',
+    path: '/confirm',
+    config: {
+      handler: Handlers.checkConfirm,
+      description: 'Start here if manual'
+    }
+  },
+  {
     method: 'POST',
     path: '/next',
     config: {

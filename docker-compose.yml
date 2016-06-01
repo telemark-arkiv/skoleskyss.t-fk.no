@@ -4,6 +4,9 @@ queueserver:
 sessionserver:
   image: mongo:3.2.6
 
+duplicateserver:
+  image: mongo:3.2.6
+
 services_base:
   image: telemark/tfk-seneca-base
   container_name: skoleskyss_services_base
@@ -46,6 +49,13 @@ services_queue:
   restart: always
   net: container:skoleskyss_web
 
+services_duplicate:
+  image: telemark/tfk-seneca-skoleskyss-duplicate
+  container_name: skoleskyss_services_duplicate
+  env_file: skoleskyss.env
+  restart: always
+  net: container:skoleskyss_web
+
 services_dispatcher:
   image: telemark/tfk-seneca-skoleskyss-dispatcher
   container_name: skoleskyss_services_dispatcher
@@ -61,5 +71,6 @@ skoleskyss_web:
   links:
     - queueserver
     - sessionserver
+    - duplicateserver
   ports:
     - 8000:8000
