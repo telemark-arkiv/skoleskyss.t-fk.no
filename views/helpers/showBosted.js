@@ -35,6 +35,5 @@ module.exports = function showBosted (data) {
       outputs.push('Foreløpig beregnet avstand til skole: ' + data['distance-see-hybel'].data.distance)
     }
   }
-  
   return outputs.join('<br />')
 }
