@@ -23,25 +23,25 @@
                 {{{showKorData document.korData}}}
             </div>
             <div class="mdl-typography--headline">
-                Bosted
-            </div>
-            <div class="mdl-typography--headline">
                 Skole
             </div>
             <div class="fontBigger">
-                {{velgklasse.klassetrinn}} {{skoledata.name}} <br />
-                <a href="/endre?type=skole" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Endre valgt skole">edit</a>
+                {{document.velgklasse.klassetrinn}} {{document.skoledata.name}} <br />
+                <a href="/endre?type=skole" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Endre valgt skole"><i class="material-icons">edit</i></a>
+            </div>
+            <div class="mdl-typography--headline">
+                Bosted
             </div>
             <div class="fontBigger">
                 {{{showBosted document}}} <br />
-                <a href="/endre?type=bosted" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Endre valgt skole">edit</a>
+                <a href="/endre?type=bosted" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Endre valgt skole"><i class="material-icons">edit</i></a>
             </div>
             <div class="mdl-typography--headline">
                 Grunnlag for søknad
             </div>
             <div class="fontBigger">
-                {{document.grunnlag.grunnlag}}
-                <a href="/endre?type=grunnlag" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Endre valgt skole">edit</a>
+                {{document.grunnlag.grunnlag}}<br />
+                <a href="/endre?type=grunnlag" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Endre valgt skole"><i class="material-icons">edit</i></a>
             </div>
             <div class="mdl-typography--headline">
                 Vilkår
@@ -55,7 +55,7 @@
     <div class="mdl-card__actions mdl-card--border">
         <a href="/avbrutt" id="cancelEverything" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Avbryt søknadsprosessen"><i class="material-icons">delete</i></a>
         <div class="mdl-layout-spacer"></div>
-        <button type="submit" title="Send inn søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
+        <button type="submit" title="Send inn søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">forward</button>
     </div>
     </form>
 </div>
