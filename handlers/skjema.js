@@ -21,7 +21,6 @@ module.exports.getNext = function (request, reply) {
   }
 
   const nextForm = getNextForm(yar._store)
-  
   if (payload && payload.stepName === 'velgklasse') {
     prepareDataForSubmit(request, function (error, document) {
       if (error) {
@@ -347,6 +346,7 @@ module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (req
 
 module.exports.showConfirm = function showConfirm (request, reply) {
   const yar = request.yar
+  const confirmedOk = yar.get('confirmedOk')
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -357,7 +357,11 @@ module.exports.showConfirm = function showConfirm (request, reply) {
     korData: yar.get('korData')
   }
 
-  reply.view('confirm', viewOptions)
+  if (confirmedOk) {
+    reply.redirect('/next')
+  } else {
+    reply.view('confirm', viewOptions)
+  }
 }
 
 module.exports.checkConfirm = function checkConfirm (request, reply) {
@@ -367,6 +371,7 @@ module.exports.checkConfirm = function checkConfirm (request, reply) {
   const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
 
   if (payload.confirmed === 'ja') {
+    yar.set('confirmedOK', true)
     request.seneca.act({role: 'duplicate', cmd: 'check', duplicateId: fodselsNummer}, function checkDuplicated (error, data) {
       if (error) {
         reply(error)

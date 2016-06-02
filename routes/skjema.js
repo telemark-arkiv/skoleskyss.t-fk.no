@@ -128,8 +128,7 @@ const routes = [
     path: '/kvittering',
     config: {
       handler: Handlers.showKvittering,
-      description: 'Vis kvittering',
-      auth: false
+      description: 'Vis kvittering'
     }
   },
   {

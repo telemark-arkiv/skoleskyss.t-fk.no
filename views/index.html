@@ -2,7 +2,34 @@
     <div class="mdl-card__title mdl-color-text--black">
         <h1>skoleskyss.t-fk.no</h1>
     </div>
-    <div class="mdl-card__supporting-text mdl-color-text--black">
-        Jabbadabbaduuuuuuuuuuuuu
-    </div>
+
+    <form action="/start" method="post">
+        <input type="hidden" name="stepName" value="skoleadresse">
+        <div class="mdl-card__supporting-text mdl-color-text--black">
+            <div class="fontBigger">
+                Velkommen til søknad om fri skoleskyss fra Telemark fylkeskommune.
+            </div>
+            <div class="fontBigger">
+                Selve søknaden tar 2 - 3 minutter å fylle ut og du vil få svar nesten umiddelbart.
+            </div>
+            <div class="mdl-typography--headline">
+                Dette trenger du
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        Busskort, dersom du har fått dette tidligere
+                    </li>
+                    <li>
+                        Adresse til hybel om du skal bo på det
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a href="/avbrutt" id="cancelEverything" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Avbryt søknadsprosessen"><i class="material-icons">delete</i></a>
+            <div class="mdl-layout-spacer"></div>
+            <button type="submit" title="Gå til neste punkt i søknaden" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">send</button>
+        </div>
+    </form>
 </div>

@@ -5,6 +5,21 @@
     <form action="/submit" method="post">
         <input type="hidden" name="stepName" value="seover">
     <div class="mdl-card__supporting-text mdl-color-text--black">
+        <div class="mdl-typography--headline">
+            Personalia
+        </div>
+        {{{showDsfPersonalia document.dsfData}}}
+        <div class="mdl-typography--headline">
+            Folkeregistrert bosted
+        </div>
+        {{showDsfBosted document.dsfData}}
+        <div class="mdl-typography--headline">
+            Kontaktinformasjon
+        </div>
+        {{showKorData document.korData}}
+        <div class="mdl-typography--headline">
+            Rådata
+        </div>
         {{document}}
     </div>
     <div class="mdl-card__actions mdl-card--border">

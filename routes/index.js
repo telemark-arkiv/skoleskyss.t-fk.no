@@ -21,6 +21,14 @@ const routes = [
     }
   },
   {
+    method: 'POST',
+    path: '/start',
+    config: {
+      handler: Handlers.checkStart,
+      description: 'Start here if logged in'
+    }
+  },
+  {
     method: 'GET',
     path: '/manuell',
     config: {

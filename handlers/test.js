@@ -77,5 +77,5 @@ module.exports.setupTest = function setupTest (request, reply) {
     data: data
   })
 
-  reply.redirect('/confirm')
+  reply.redirect('/start')
 }
