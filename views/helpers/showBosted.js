@@ -5,7 +5,7 @@ const showDsfBosted = require('./showDsfBosted')
 module.exports = function showBosted (data) {
   var outputs = []
 
-  if (document.bosted.bosted === 'folkeregistrert') {
+  if (data.bosted.bosted === 'folkeregistrert') {
     outputs.push('Hjemme, på folkeregistrert bosted')
     outputs.push(showDsfBosted(data.dsfData))
     if (data['distance-see-dsf']) {
@@ -13,7 +13,7 @@ module.exports = function showBosted (data) {
     }
   }
 
-  if (document.bosted.bosted === 'delt') {
+  if (data.bosted.bosted === 'delt') {
     outputs.push('Delt bosted')
     outputs.push('Folkeregistrert bosted')
     outputs.push(showDsfBosted(data.dsfData))
@@ -28,7 +28,7 @@ module.exports = function showBosted (data) {
     }
   }
 
-  if (document.bosted.bosted === 'hybel') {
+  if (data.bosted.bosted === 'hybel') {
     outputs.push('Hybel')
     outputs.push(showDsfBosted(data.bostedhybel))
     if (data['distance-see-hybel']) {
