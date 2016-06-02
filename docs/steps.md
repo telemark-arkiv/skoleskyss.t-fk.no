@@ -29,7 +29,7 @@
 
 ### Bosted 2 ikke funnet
 - Vises dersom adresse for bosted 2 ikke finnes hos Seeiendom
-  - Lar deg returnere til hybel
+  - Lar deg returnere til bosted 2
   - Lar deg fortsette med varsel om mulig manuell behandling
 
 ## Skole
