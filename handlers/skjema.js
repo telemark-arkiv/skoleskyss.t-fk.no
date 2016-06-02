@@ -62,7 +62,7 @@ module.exports.showSeOver = function showSeOver (request, reply) {
     if (error) {
       console.error(error)
     } else {
-      viewOptions.document = JSON.stringify(document, null, 2)
+      viewOptions.document = document
     }
     reply.view('seover', viewOptions)
   })
@@ -78,7 +78,7 @@ module.exports.showBosted = function showBosted (request, reply) {
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
-    folkeregistrertAdresse: dsfData.ADR + ', ' + dsfData.POSTN + ' ' + dsfData.POSTS
+    dsfData: dsfData
   }
 
   request.seneca.act({
@@ -244,26 +244,30 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
     githubUrl: pkg.repository.url
   }
 
-  request.seneca.act({role: 'session', cmd: 'get', sessionId: sessionId}, function (error, data) {
-    if (error) {
-      console.error(error)
-    } else {
-      data.forEach(function (item) {
-        if (/^see/.test(item.key)) {
-          request.seneca.act({
-            role: 'lookup',
-            cmd: 'distance',
-            key: 'distance-' + item.key,
-            sessionId: sessionId,
-            origin: unwrapGeocoded(item.data),
-            destination: destination
-          })
-        }
-      })
-    }
+  if (valgtskole.skole !== '0000') {
+    request.seneca.act({role: 'session', cmd: 'get', sessionId: sessionId}, function (error, data) {
+      if (error) {
+        console.error(error)
+      } else {
+        data.forEach(function (item) {
+          if (/^see/.test(item.key)) {
+            request.seneca.act({
+              role: 'lookup',
+              cmd: 'distance',
+              key: 'distance-' + item.key,
+              sessionId: sessionId,
+              origin: unwrapGeocoded(item.data),
+              destination: destination
+            })
+          }
+        })
+      }
 
+      reply.view('velgklasse', viewOptions)
+    })
+  } else {
     reply.view('velgklasse', viewOptions)
-  })
+  }
 }
 
 module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {

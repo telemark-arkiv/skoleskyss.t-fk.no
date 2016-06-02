@@ -1,27 +1,35 @@
 <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-shadow--2dp">
     <div class="mdl-card__title mdl-color-text--black">
-        <h1>Se over før innsending</h1>
+        <h1 class="margin-bottom-10">Se over</h1>
     </div>
     <form action="/submit" method="post">
+        <div class="mdl-card__supporting-text mdl-color-text--black">
+            <div class="mdl-typography--headline">
+                Personalia
+            </div>
+            <div class="fontBigger">
+                {{{showDsfPersonalia document.dsfData}}}
+            </div>
+            <div class="mdl-typography--headline">
+                Folkeregistrert bosted
+            </div>
+            <div class="fontBigger">
+                {{showDsfBosted document.dsfData}}
+            </div>
+            <div class="mdl-typography--headline">
+                Kontaktinformasjon
+            </div>
+            <div class="fontBigger">
+                {{{showKorData document.korData}}}
+            </div>
+            <div class="mdl-typography--headline">
+                Skole
+            </div>
+            <div class="fontBigger">
+                {{velgklasse.klassetrinn}} {{skoledata.name}}
+            </div>
+        </div>
         <input type="hidden" name="stepName" value="seover">
-    <div class="mdl-card__supporting-text mdl-color-text--black">
-        <div class="mdl-typography--headline">
-            Personalia
-        </div>
-        {{{showDsfPersonalia document.dsfData}}}
-        <div class="mdl-typography--headline">
-            Folkeregistrert bosted
-        </div>
-        {{showDsfBosted document.dsfData}}
-        <div class="mdl-typography--headline">
-            Kontaktinformasjon
-        </div>
-        {{showKorData document.korData}}
-        <div class="mdl-typography--headline">
-            Rådata
-        </div>
-        {{document}}
-    </div>
     <div class="mdl-card__actions mdl-card--border">
         <a href="/avbrutt" id="cancelEverything" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Avbryt søknadsprosessen"><i class="material-icons">delete</i></a>
         <div class="mdl-layout-spacer"></div>

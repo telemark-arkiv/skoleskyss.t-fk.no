@@ -1,11 +1,10 @@
 <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-shadow--2dp">
     <div class="mdl-card__title mdl-color-text--black">
-        <h1>Innhentet informasjon</h1>
+        <h1 class="margin-bottom-10">Innhentet informasjon</h1>
     </div>
     <form action="/confirm" method="post">
         <input type="hidden" name="stepName" value="confirm">
         <div class="mdl-card__supporting-text mdl-color-text--black">
-            Vi har hentet inn følgende opplysninger om deg.
             <div class="fontBigger margin-bottom-10">
                 Folkeregistrert bosted:<br />
                 {{showDsfBosted dsfData}}
@@ -15,7 +14,7 @@
                 {{{showKorData korData}}}
             </div>
             <div class="mdl-typography--headline">
-                Stemmer alle disse opplysningene?
+                Stemmer disse opplysningene?
             </div>
             <label for="confirmRadio01" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
                 <input type="radio" name="confirmed" value="ja" id="confirmRadio01" class="mdl-radio__button warning-type-selector" required="required">

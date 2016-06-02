@@ -1,11 +1,13 @@
 <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-shadow--2dp">
     <div class="mdl-card__title mdl-color-text--black">
-        <h1>Velg klasse</h1>
+        <h1 class="margin-bottom-10">Klasse</h1>
     </div>
     <form action="/next" method="post">
         <input type="hidden" name="stepName" value="velgklasse">
         <div class="mdl-card__supporting-text mdl-color-text--black">
-            <div class="mdl-typography--headline margin-top-10">Hvilket klassetrinn skal du gå</div>
+            <div class="mdl-typography--headline">
+                Hvilket klassetrinn skal du gå?
+            </div>
             <label for="klasseRadio01" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
                 <input type="radio" name="klassetrinn" value="VG1" id="klasseRadio01" class="mdl-radio__button warning-type-selector" required="required">
                 <span class="mdl-radio__label">VG1</span>
