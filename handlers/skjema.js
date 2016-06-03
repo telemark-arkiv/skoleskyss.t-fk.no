@@ -210,12 +210,13 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
   if (hybel || delt) {
     const key = hybel ? 'see-hybel' : 'see-delt'
     const data = hybel || delt
+    const address = extractAdressToGeocode(data)
     request.seneca.act({
       role: 'lookup',
       cmd: 'seeiendom',
       sessionId: sessionId,
       key: key,
-      address: extractAdressToGeocode(data)
+      address: address
     })
   }
 

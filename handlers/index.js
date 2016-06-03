@@ -34,9 +34,16 @@ module.exports.start = function start (request, reply) {
 
 module.exports.checkStart = function (request, reply) {
   const yar = request.yar
+  const dsfError = yar.get('dsfError')
+  const korError = yar.get('korError')
 
   yar.set('introOk', true)
-  reply.redirect('/confirm')
+
+  if (dsfError || korError) {
+    reply.redirect('/ikkefunnet')
+  } else {
+    reply.redirect('/confirm')
+  }
 }
 
 module.exports.manuell = function start (request, reply) {
