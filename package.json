@@ -74,7 +74,7 @@
     "seneca-balance-client": "0.5.0",
     "seneca-mesh": "0.7.0",
     "vision": "4.1.0",
-    "wreck": "7.2.1",
+    "wreck": "8.0.0",
     "yar": "7.0.2"
   }
 }
