@@ -3,7 +3,7 @@
 const tap = require('tap')
 const skjemaHandlers = require('../../handlers/skjema')
 
-tap.equal(Object.keys(skjemaHandlers).length, 23, 'There are 23 skjema handlers')
+tap.equal(Object.keys(skjemaHandlers).length, 24, 'There are 24 skjema handlers')
 
 tap.ok(skjemaHandlers.getNext, 'Handler has method getNext')
 
@@ -30,6 +30,8 @@ tap.ok(skjemaHandlers.showIkkeFunnet, 'Handler has method showIkkeFunnet')
 tap.ok(skjemaHandlers.showVelgSkole, 'Handler has method showVelgSkole')
 
 tap.ok(skjemaHandlers.showVelgKlasse, 'Handler has method showVelgKlasse')
+
+tap.ok(skjemaHandlers.showVelgStudieretning, 'Handler has method showVelgStudieretning')
 
 tap.ok(skjemaHandlers.showSoktTidligere, 'Handler has method showSoktTidligere')
 

@@ -6,6 +6,7 @@ const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
 const unwrapGeocoded = require('../lib/unwrap-geocoded')
 const getSkoleFromId = require('../lib/get-skole-from-id')
 const generateGrunnlagListe = require('../lib/generate-grunnlag-liste')
+const generateLinjeListe = require('../lib/generate-studieretning-liste')
 const prepareDataForSubmit = require('../lib/prepare-data-for-submit')
 const prepareDuplicateData = require('../lib/prepare-data-for-duplicates')
 const pkg = require('../package.json')
@@ -273,6 +274,21 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   } else {
     reply.view('velgklasse', viewOptions)
   }
+}
+
+module.exports.showVelgStudieretning = function showVelgStudieretning (request, reply) {
+  const yar = request.yar
+  const valgtskole = yar.get('velgskole')
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url,
+    linjeListe: generateLinjeListe(valgtskole.skole)
+  }
+
+  reply.view('velgstudieretning', viewOptions)
 }
 
 module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {

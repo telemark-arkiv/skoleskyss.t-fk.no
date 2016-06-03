@@ -77,6 +77,14 @@ const routes = [
   },
   {
     method: 'GET',
+    path: '/velgstudieretning',
+    config: {
+      handler: Handlers.showVelgStudieretning,
+      description: 'Prepare for changes'
+    }
+  },
+  {
+    method: 'GET',
     path: '/ikkefunnet',
     config: {
       handler: Handlers.showIkkeFunnet,
