@@ -143,13 +143,14 @@ module.exports.showKontaktInformasjon = function showKontaktInformasjon (request
 
 module.exports.showGrunnlag = function showGrunnlag (request, reply) {
   const yar = request.yar
+  const grunnlagListe = generateGrunnlagListe(yar._store)
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
-    grunnlagListe: generateGrunnlagListe(yar._store)
+    grunnlagListe: grunnlagListe
   }
 
   reply.view('grunnlag', viewOptions)
