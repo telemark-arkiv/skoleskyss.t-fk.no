@@ -8,18 +8,7 @@
             <div class="mdl-typography--headline">
                 Hvorfor søker du skoleskyss?
             </div>
-            <label for="grunnlagRadio01" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                <input type="radio" name="grunnlag" value="Avstand" id="grunnlagRadio01" class="mdl-radio__button period-selector" required="required">
-                <span class="mdl-radio__label">Avstanden til skolen er over 6 kilometer</span>
-            </label><br/>
-            <label for="grunnlagRadio02" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                <input type="radio" name="grunnlag" value="Båt/Ferge" id="grunnlagRadio02" class="mdl-radio__button period-selector" required="required">
-                <span class="mdl-radio__label">Jeg må ta båt eller ferge for å komme til skolen</span>
-            </label><br/>
-            <label for="grunnlagRadio03" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                <input type="radio" name="grunnlag" value="Annet" id="grunnlagRadio03" class="mdl-radio__button period-selector" required="required">
-                <span class="mdl-radio__label">Andre årsaker</span>
-            </label><br/>
+            {{grunnlag-liste}}
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <a href="/avbrutt" id="cancelEverything" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Avbryt søknadsprosessen"><i class="material-icons">delete</i></a>

@@ -5,6 +5,7 @@ const getSkipSteps = require('../lib/get-skip-steps')
 const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
 const unwrapGeocoded = require('../lib/unwrap-geocoded')
 const getSkoleFromId = require('../lib/get-skole-from-id')
+const generateGrunnlagListe = require('../lib/generate-grunnlag-liste')
 const prepareDataForSubmit = require('../lib/prepare-data-for-submit')
 const prepareDuplicateData = require('../lib/prepare-data-for-duplicates')
 const pkg = require('../package.json')
@@ -141,12 +142,14 @@ module.exports.showKontaktInformasjon = function showKontaktInformasjon (request
 }
 
 module.exports.showGrunnlag = function showGrunnlag (request, reply) {
+  const yar = request.yar
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    grunnlagListe: generateGrunnlagListe(yar._store)
   }
 
   reply.view('grunnlag', viewOptions)
