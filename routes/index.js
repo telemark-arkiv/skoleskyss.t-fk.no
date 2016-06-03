@@ -8,8 +8,7 @@ const routes = [
     path: '/',
     config: {
       handler: Handlers.getFrontpage,
-      description: 'Show the frontpage',
-      auth: false
+      description: 'Show the frontpage'
     }
   },
   {
@@ -41,8 +40,7 @@ const routes = [
     path: '/hjelp',
     config: {
       handler: Handlers.hjelp,
-      description: 'Show the help page',
-      auth: false
+      description: 'Show the help page'
     }
   },
   {
@@ -50,8 +48,7 @@ const routes = [
     path: '/vilkar',
     config: {
       handler: Handlers.vilkar,
-      description: 'Show the vilkar page',
-      auth: false
+      description: 'Show the vilkar page'
     }
   },
   {
@@ -59,8 +56,7 @@ const routes = [
     path: '/personvern',
     config: {
       handler: Handlers.personvern,
-      description: 'Show the personvern page',
-      auth: false
+      description: 'Show the personvern page'
     }
   }
 ]
