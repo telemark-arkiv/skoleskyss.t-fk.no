@@ -5,7 +5,12 @@
     <form action="/next" method="post">
         <input type="hidden" name="stepName" value="soknaduendret">
         <div class="mdl-card__supporting-text mdl-color-text--black">
-            Du har ikke oppgitt opplysninger som vil endre utfallet av saksbehandlingen
+            <div>
+                Vi finner ingen nye eller endrede opplysninger i søknaden du akkurat har fylt ut.
+            </div>
+            <div>
+                Behandling av søknaden vil gi samme resultat som forrige søknad.
+            </div>
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <a href="/avbrutt" id="cancelEverything" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Avbryt søknadsprosessen"><i class="material-icons">delete</i></a>
