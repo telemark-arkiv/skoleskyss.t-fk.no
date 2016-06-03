@@ -186,6 +186,14 @@ const routes = [
       handler: Handlers.showAvbrutt,
       description: 'Avbryter søknaden'
     }
+  },
+  {
+    method: 'GET',
+    path: '/endre',
+    config: {
+      handler: Handlers.setupChanges,
+      description: 'Prepare for changes'
+    }
   }
 ]
 

@@ -415,3 +415,27 @@ module.exports.showAvbrutt = function showAvbrutt (request, reply) {
 
   reply.view('avbrutt', viewOptions)
 }
+
+module.exports.setupChanges = function setupChanges (request, reply) {
+  const yar = request.yar
+  const type = request.query.type
+
+  if (type === 'skole') {
+    yar.clear('velgskole')
+    yar.clear('velgklasse')
+    yar.clear('skoleadresse')
+  }
+
+  if (type === 'bosted') {
+    yar.clear('bosted')
+    yar.clear('bosteddelt')
+    yar.clear('bostedhybel')
+  }
+
+  if (type === 'busskort') {
+    yar.clear('busskort')
+    yar.clear('busskortnummer')
+  }
+
+  reply.redirect('/next')
+}
