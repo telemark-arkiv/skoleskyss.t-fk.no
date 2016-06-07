@@ -33,8 +33,9 @@ module.exports.setupTest = function setupTest (request, reply) {
     BRUK: payload.BRUK
   }
   const korData = {
-    Mobiltelefonnummer: payload.Mobiltelefonnummer,
-    Epostadresse: payload.Epostadresse
+    uid: payload.FODT.toString() + payload.PERS.toString(),
+    MobilePhone: payload.MobilePhone,
+    Email: payload.Email
   }
 
   if (payload.resetSession) {

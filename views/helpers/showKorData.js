@@ -3,12 +3,12 @@
 module.exports = function korData (korData) {
   var info = ''
 
-  if (korData.Mobiltelefonnummer) {
-    info = 'Mobilnummer: ' + korData.Mobiltelefonnummer + '<br />'
+  if (korData.MobilePhone) {
+    info = 'Mobilnummer: ' + korData.MobilePhone + '<br />'
   }
 
-  if (korData.Epostadresse) {
-    info += 'Epostadresse: ' + korData.Epostadresse
+  if (korData.Email) {
+    info += 'Epostadresse: ' + korData.Email
   }
 
   return info
