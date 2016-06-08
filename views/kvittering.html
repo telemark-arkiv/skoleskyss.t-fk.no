@@ -3,6 +3,59 @@
         <h1 class="margin-bottom-10">Kvittering</h1>
     </div>
     <div class="mdl-card__supporting-text mdl-color-text--black">
-      Din søknad er mottatt
+        <div class="mdl-typography--headline">
+            Din søknad er mottatt
+        </div>
+        <div class="fontBigger">
+            Her er informasjonen som er innsendt.
+        </div>
+        <div class="mdl-typography--headline">
+            Personalia
+        </div>
+        <div class="fontBigger">
+            {{{showDsfPersonalia document.dsfData}}}
+        </div>
+        <div class="mdl-typography--headline">
+            Folkeregistrert bosted
+        </div>
+        <div class="fontBigger">
+            {{showDsfBosted document.dsfData}}
+        </div>
+        <div class="mdl-typography--headline">
+            Kontaktinformasjon
+        </div>
+        <div class="fontBigger">
+            {{{showKorData document.korData}}}
+        </div>
+        <div class="mdl-typography--headline">
+            Skole
+        </div>
+        <div class="fontBigger">
+            {{document.velgklasse.klassetrinn}} {{document.skoledata.name}}
+        </div>
+        <div class="mdl-typography--headline">
+            Bosted
+        </div>
+        <div class="fontBigger">
+            {{{showBosted document}}}
+        </div>
+        <div class="mdl-typography--headline">
+            Grunnlag for søknad
+        </div>
+        <div class="fontBigger">
+            {{document.grunnlag.grunnlag}}
+        </div>
+        <div class="mdl-typography--headline">
+            Busskort
+        </div>
+        <div class="fontBigger">
+            {{{ showBusskort document}}}
+        </div>
+        <div class="mdl-typography--headline">
+            Vilkår
+        </div>
+        <div class="fontBigger">
+            Jeg godtar <a href="/vilkar">vilkårene</a> for skoleskyss
+        </div>
     </div>
 </div>

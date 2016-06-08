@@ -316,12 +316,14 @@ module.exports.showSoknadUendret = function showSoknadUendret (request, reply) {
 }
 
 module.exports.showKvittering = function showKvittering (request, reply) {
+  const yar = request.yar
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    document: yar.get('submittedData')
   }
 
   request.cookieAuth.clear()
@@ -333,24 +335,18 @@ module.exports.doSubmit = function doSubmit (request, reply) {
   const yar = request.yar
   const sessionId = yar.id
   const dsfData = yar.get('dsfData')
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
   const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
 
   prepareDataForSubmit(request, function (error, document) {
     if (error) {
       console.error(error)
     } else {
+      yar.set('submittedData', document)
       const duplicateData = prepareDuplicateData(document)
       request.seneca.act({role: 'queue', cmd: 'add', data: document})
       request.seneca.act({role: 'duplicate', cmd: 'set', duplicateId: fodselsNummer, data: duplicateData})
       request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
-      reply.redirect('/kvittering', viewOptions)
+      reply.redirect('/kvittering')
     }
   })
 }
