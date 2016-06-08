@@ -28,6 +28,13 @@ services_seeiendom:
   restart: always
   net: container:skoleskyss_web
 
+services_dsf:
+  image: telemark/tfk-seneca-dsf
+  container_name: skoleskyss_services_dsf
+  env_file: skoleskyss.env
+  restart: always
+  net: container:skoleskyss_web
+
 services_distance:
   image: telemark/tfk-seneca-skoleskyss-walking-distance
   container_name: skoleskyss_services_distance
