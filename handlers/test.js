@@ -3,6 +3,8 @@
 const jwt = require('jsonwebtoken')
 const config = require('../config')
 const pkg = require('../package.json')
+const skoler = require('../lib/data/skoler.json')
+const getSkoleFromId = require('../lib/get-skole-from-id')
 
 module.exports.showTest = function showTest (request, reply) {
   const viewOptions = {
@@ -79,4 +81,49 @@ module.exports.setupTest = function setupTest (request, reply) {
   })
 
   reply.redirect('/start')
+}
+
+module.exports.showAvstand = function showAvstand (request, reply) {
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url,
+    skoler: skoler
+  }
+
+  reply.view('avstand', viewOptions)
+}
+
+module.exports.calculateAvstand = function (request, reply) {
+  const payload = request.payload
+  const skoleData = getSkoleFromId(payload.skole)
+  const address = payload.address
+  const skoleKoord = skoleData.geocoded.lat + ',' + skoleData.geocoded.lon
+
+  request.seneca.act({role: 'seeiendom', cmd: 'lookup', address: address}, function (error, data) {
+    if (error) {
+      reply(error)
+    } else {
+      const addressKoord = data.geocoded.lat + ',' + data.geocoded.lon
+      request.seneca.act({role: 'distance', cmd: 'measure', origin: addressKoord, destination: skoleKoord}, function (err, distance) {
+        if (err) {
+          reply(err)
+        } else {
+          const viewOptions = {
+            version: pkg.version,
+            versionName: pkg.louie.versionName,
+            versionVideoUrl: pkg.louie.versionVideoUrl,
+            systemName: pkg.louie.systemName,
+            githubUrl: pkg.repository.url,
+            distance: distance,
+            skoleData: skoleData,
+            address: address
+          }
+          reply.view('avstand-beregnet', viewOptions)
+        }
+      })
+    }
+  })
 }

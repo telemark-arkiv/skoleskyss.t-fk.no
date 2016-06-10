@@ -3,4 +3,4 @@
 const tap = require('tap')
 const routes = require('../../routes/test')
 
-tap.equal(routes.length, 2, 'There are 2 test routes')
+tap.equal(routes.length, 4, 'There are 4 test routes')
