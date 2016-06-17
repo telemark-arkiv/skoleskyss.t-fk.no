@@ -1,6 +1,6 @@
 {
   "name": "skoleskyss.t-fk.no",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "Søk skoleskyss i Telemark",
   "license": "MIT",
   "author": {
@@ -73,6 +73,7 @@
     "seneca": "2.1.0",
     "seneca-balance-client": "0.5.0",
     "seneca-mesh": "0.7.0",
+    "tfk-saksbehandling-skoleskyss-waypoints": "1.0.1",
     "vision": "4.1.0",
     "wreck": "8.0.0",
     "yar": "7.0.2"

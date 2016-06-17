@@ -1,6 +1,7 @@
 'use strict'
 
 const jwt = require('jsonwebtoken')
+const getWaypoints = require('tfk-saksbehandling-skoleskyss-waypoints')
 const config = require('../config')
 const pkg = require('../package.json')
 const skoler = require('../lib/data/skoler.json')
@@ -99,7 +100,12 @@ module.exports.showAvstand = function showAvstand (request, reply) {
 module.exports.calculateAvstand = function (request, reply) {
   const payload = request.payload
   const skoleData = getSkoleFromId(payload.skole)
-  const address = payload.address
+  var address = payload.ADR
+  var waypoints = false
+  if (payload.POSTN && payload.POSTS) {
+    address = payload.ADR + ', ' + payload.POSTN + ' ' + payload.POSTS
+    waypoints = getWaypoints(payload)
+  }
   const skoleKoord = skoleData.geocoded.lat + ',' + skoleData.geocoded.lon
 
   request.seneca.act({role: 'seeiendom', cmd: 'lookup', address: address}, function (error, data) {
@@ -107,7 +113,16 @@ module.exports.calculateAvstand = function (request, reply) {
       reply(error)
     } else {
       const addressKoord = data.geocoded.lat + ',' + data.geocoded.lon
-      request.seneca.act({role: 'distance', cmd: 'measure', origin: addressKoord, destination: skoleKoord}, function (err, distance) {
+      var lookup = {
+        role: 'distance',
+        cmd: 'measure',
+        origin: addressKoord,
+        destination: skoleKoord
+      }
+      if (waypoints) {
+        lookup.waypoints = waypoints
+      }
+      request.seneca.act(lookup, function (err, distance) {
         if (err) {
           reply(err)
         } else {
