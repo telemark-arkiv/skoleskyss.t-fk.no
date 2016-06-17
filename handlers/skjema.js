@@ -1,5 +1,6 @@
 'use strict'
 
+const getWaypoints = require('tfk-saksbehandling-skoleskyss-waypoints')
 const getNextForm = require('../lib/get-next-form')
 const getSkipSteps = require('../lib/get-skip-steps')
 const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
@@ -240,8 +241,12 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   const yar = request.yar
   const sessionId = request.yar.id
   const valgtskole = yar.get('velgskole')
+  const hybel = yar.get('bostedhybel')
+  const delt = yar.get('bosteddelt')
+  const dsf = yar.get('dsfData')
   const skole = getSkoleFromId(valgtskole.skole)
   const destination = unwrapGeocoded(skole)
+
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -257,14 +262,36 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
       } else {
         data.forEach(function (item) {
           if (/^see/.test(item.key)) {
-            request.seneca.act({
+            var lookup = {
               role: 'lookup',
               cmd: 'distance',
               key: 'distance-' + item.key,
               sessionId: sessionId,
               origin: unwrapGeocoded(item.data),
               destination: destination
-            })
+            }
+            var wp = {}
+
+            if (item.key === 'see-dsf') {
+              wp = dsf
+            }
+
+            if (item.key === 'see-delt') {
+              wp = delt
+            }
+
+            if (item.key === 'see-hybel') {
+              wp = hybel
+            }
+
+            wp.skole = valgtskole.skole
+            const waypoints = getWaypoints(wp)
+
+            if (waypoints.length > 0) {
+              lookup.waypoints = waypoints
+            }
+
+            request.seneca.act(lookup)
           }
         })
       }
