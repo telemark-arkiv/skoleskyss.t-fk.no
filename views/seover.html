@@ -25,15 +25,19 @@
             <div class="mdl-typography--headline margin-top-10">
                 Skole
             </div>
-            <div class="fontBigger">
-                {{document.velgklasse.klassetrinn}} {{document.skoledata.name}} <br />
+            <div class="fontBigger margin-bottom-10">
+                {{document.velgklasse.klassetrinn}} {{document.skoledata.name}}
+            </div>
+            <div>
                 <a href="/endre?type=skole" class="mdl-button mdl-js-button mdl-color-text--black fontBigger margin-top-10" title="Endre valgt skole">Endre opplysinger om skole</a>
             </div>
             <div class="mdl-typography--headline margin-top-10">
                 Bosted
             </div>
-            <div class="fontBigger">
-                {{{showBosted document}}} <br />
+            <div class="fontBigger margin-bottom-10">
+                {{{showBosted document}}}
+            </div>
+            <div>
                 <a href="/endre?type=bosted" class="mdl-button mdl-js-button mdl-color-text--black fontBigger margin-top-10" title="Endre valgt skole">
                     Endre opplysninger om bosted
                 </a>
@@ -41,8 +45,10 @@
             <div class="mdl-typography--headline margin-top-10">
                 Grunnlag for søknad
             </div>
-            <div class="fontBigger">
-                {{document.grunnlag.grunnlag}}<br />
+            <div class="fontBigger margin-bottom-10">
+                {{document.grunnlag.grunnlag}}
+            </div>
+            <div>
                 <a href="/endre?type=grunnlag" class="mdl-button mdl-js-button mdl-color-text--black fontBigger margin-top-10" title="Endre grunnlag for søknad">
                     Endre grunnlag for søknad
                 </a>
@@ -50,9 +56,11 @@
             <div class="mdl-typography--headline margin-top-10">
                 Busskort
             </div>
-            <div class="fontBigger">
-                {{{ showBusskort document}}}<br />
-                <a href="/endre?type=busskort" class="mdl-button mdl-js-button mdl-color-text--black fontBigger margin-top-10" title="Endre valgt skole">
+            <div class="fontBigger margin-bottom-10">
+                {{{ showBusskort document}}}
+            </div>
+            <div>
+                <a href="/endre?type=busskort" class="mdl-button mdl-js-button mdl-color-text--black fontBigger" title="Endre valgt skole">
                     Endre opplysninger om busskort
                 </a>
             </div>
@@ -61,7 +69,7 @@
             </div>
             <label for="termsAcceptedChkBx" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxorden">
                 <input type="checkbox" name="termsAccepted" value="1" id="termsAcceptedChkBx" class="mdl-checkbox__input" required="required">
-                <span class="mdl-checkbox__label">Jeg godtar <a href="/vilkar">vilkårene</a> for skoleskyss</span>
+                <span class="mdl-checkbox__label fontBigger">Jeg godtar <a href="/vilkar">vilkårene</a> for skoleskyss</span>
             </label>
         </div>
         <input type="hidden" name="stepName" value="seover">
