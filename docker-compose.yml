@@ -35,6 +35,13 @@ services_dsf:
   restart: always
   net: container:skoleskyss_web
 
+services_sms:
+  image: telemark/tfk-seneca-sms
+  container_name: skoleskyss_services_sms
+  env_file: skoleskyss.env
+  restart: always
+  net: container:skoleskyss_web
+
 services_distance:
   image: telemark/tfk-seneca-skoleskyss-walking-distance
   container_name: skoleskyss_services_distance
