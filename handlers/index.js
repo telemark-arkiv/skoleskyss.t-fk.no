@@ -1,22 +1,15 @@
 'use strict'
 
+const jwt = require('jsonwebtoken')
+const config = require('../config')
+const encryptorKey = config.SKOLESKYSS_ENCRYPTOR_KEY
+const encryptor = require('simple-encryptor')(encryptorKey)
 const pkg = require('../package.json')
 
 module.exports.getFrontpage = function getFrontpage (request, reply) {
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
-
-  reply.view('index', viewOptions)
-}
-
-module.exports.start = function start (request, reply) {
   const yar = request.yar
   const introOk = yar.get('introOk')
+
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -30,6 +23,31 @@ module.exports.start = function start (request, reply) {
   } else {
     reply.view('index', viewOptions)
   }
+}
+
+module.exports.start = function start (request, reply) {
+  const yar = request.yar
+  const receivedToken = request.query.jwt
+  const jwtDecrypted = jwt.verify(receivedToken, config.SKOLESKYSS_JWT_SECRET)
+  const data = encryptor.decrypt(jwtDecrypted.data)
+
+  const tokenOptions = {
+    expiresIn: '1h',
+    issuer: 'https://auth.t-fk.no'
+  }
+
+  const token = jwt.sign(data, config.SKOLESKYSS_JWT_SECRET, tokenOptions)
+
+  yar.set('dsfData', data.dsfData)
+  yar.set('korData', data.korData)
+
+  request.cookieAuth.set({
+    token: token,
+    isAuthenticated: true,
+    data: data
+  })
+
+  reply.redirect('/')
 }
 
 module.exports.checkStart = function (request, reply) {

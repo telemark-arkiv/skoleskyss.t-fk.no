@@ -94,7 +94,7 @@ server.register(require('hapi-auth-cookie'), function (err) {
     password: config.SKOLESKYSS_COOKIE_SECRET,
     cookie: 'skoleskyss-session',
     validateFunc: validate,
-    redirectTo: '/login',
+    redirectTo: config.SKOLESKYSS_AUTH_URL,
     isSecure: false
   })
 

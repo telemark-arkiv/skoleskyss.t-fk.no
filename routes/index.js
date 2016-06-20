@@ -16,7 +16,8 @@ const routes = [
     path: '/start',
     config: {
       handler: Handlers.start,
-      description: 'Start here if logged in'
+      description: 'Start here if logged in',
+      auth: false
     }
   },
   {

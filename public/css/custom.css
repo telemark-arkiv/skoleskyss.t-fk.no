@@ -120,7 +120,8 @@ th.mdl-data-table__cell--non-numeric {
 }
 
 .fontBigger {
-    font-size: 16px;
+    font-size: 19px;
+    line-height: 24px;
 }
 
 a {
