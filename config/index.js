@@ -1,5 +1,4 @@
 'use strict'
-process.env.SKOLESKYSS_AUTH_URL = 'https://selvbetjening.t-fk.no/login'
 
 const config = {
   SKOLESKYSS_SERVER_PORT_WEB: process.env.SKOLESKYSS_SERVER_PORT_WEB || 8000,
