@@ -362,6 +362,7 @@ module.exports.doSubmit = function doSubmit (request, reply) {
   const yar = request.yar
   const sessionId = yar.id
   const dsfData = yar.get('dsfData')
+  const korData = yar.get('korData')
   const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
 
   prepareDataForSubmit(request, function (error, document) {
@@ -373,6 +374,9 @@ module.exports.doSubmit = function doSubmit (request, reply) {
       request.seneca.act({role: 'queue', cmd: 'add', data: document})
       request.seneca.act({role: 'duplicate', cmd: 'set', duplicateId: fodselsNummer, data: duplicateData})
       request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
+      if (korData.MobilePhone !== '') {
+        request.seneca.act({role: 'message', cmd: 'sms', phone: korData.MobilePhone})
+      }
       reply.redirect('/kvittering')
     }
   })
