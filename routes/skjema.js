@@ -5,14 +5,6 @@ const Handlers = require('../handlers/skjema')
 const routes = [
   {
     method: 'GET',
-    path: '/personalia',
-    config: {
-      handler: Handlers.showPersonalia,
-      description: 'Show the personal info pages'
-    }
-  },
-  {
-    method: 'GET',
     path: '/bosted',
     config: {
       handler: Handlers.showBosted,
@@ -33,14 +25,6 @@ const routes = [
     config: {
       handler: Handlers.showBostedDelt,
       description: 'Show the hybel page'
-    }
-  },
-  {
-    method: 'GET',
-    path: '/kontaktinformasjon',
-    config: {
-      handler: Handlers.showKontaktInformasjon,
-      description: 'Show the contact info page'
     }
   },
   {
@@ -193,14 +177,6 @@ const routes = [
     config: {
       handler: Handlers.doSubmit,
       description: 'Submit the form'
-    }
-  },
-  {
-    method: 'GET',
-    path: '/avbrutt',
-    config: {
-      handler: Handlers.showAvbrutt,
-      description: 'Avbryter søknaden'
     }
   },
   {

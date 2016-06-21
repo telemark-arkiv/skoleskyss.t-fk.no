@@ -3,4 +3,4 @@
 const tap = require('tap')
 const skjemaRoutes = require('../../routes/skjema')
 
-tap.equal(skjemaRoutes.length, 26, 'There are 26 skjema routes')
+tap.equal(skjemaRoutes.length, 23, 'There are 23 skjema routes')

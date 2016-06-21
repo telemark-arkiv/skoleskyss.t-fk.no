@@ -134,30 +134,6 @@ module.exports.showBostedDelt = function showBostedDelt (request, reply) {
   reply.view('bosteddelt', viewOptions)
 }
 
-module.exports.showPersonalia = function showPersonalia (request, reply) {
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
-
-  reply.view('personalia', viewOptions)
-}
-
-module.exports.showKontaktInformasjon = function showKontaktInformasjon (request, reply) {
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
-
-  reply.view('kontaktinformasjon', viewOptions)
-}
-
 module.exports.showGrunnlag = function showGrunnlag (request, reply) {
   const yar = request.yar
   const grunnlagListe = generateGrunnlagListe(yar._store)
@@ -457,24 +433,6 @@ module.exports.checkConfirm = function checkConfirm (request, reply) {
   } else {
     reply.redirect('/uriktigeopplysninger')
   }
-}
-
-module.exports.showAvbrutt = function showAvbrutt (request, reply) {
-  const yar = request.yar
-  const sessionId = yar.id
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
-
-  request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
-
-  request.cookieAuth.clear()
-
-  reply.view('avbrutt', viewOptions)
 }
 
 module.exports.setupChanges = function setupChanges (request, reply) {
