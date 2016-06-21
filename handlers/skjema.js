@@ -16,7 +16,10 @@ module.exports.getNext = function (request, reply) {
   const payload = request.payload
   const yar = request.yar
   if (payload) {
+    var completedSteps = yar.get('completedSteps') || []
+    completedSteps.push(payload.stepName)
     yar.set(payload.stepName, payload)
+    yar.set('completedSteps', completedSteps)
     const skipSteps = getSkipSteps(yar._store)
     skipSteps.forEach(function (item) {
       yar.set(item, false)
@@ -49,6 +52,18 @@ module.exports.getNext = function (request, reply) {
     })
   } else {
     reply.redirect('/' + nextForm)
+  }
+}
+
+module.exports.getPreviousStep = function (request, reply) {
+  const yar = request.yar
+  var completedSteps = yar.get('completedSteps')
+  if (completedSteps) {
+    const previousStep = completedSteps.pop()
+    yar.set('completedSteps', completedSteps)
+    reply.redirect('/' + previousStep)
+  } else {
+    reply.redirect('/')
   }
 }
 
@@ -423,6 +438,9 @@ module.exports.checkConfirm = function checkConfirm (request, reply) {
   const fodselsNummer = dsfData.FODT.toString() + dsfData.PERS.toString()
 
   if (payload.confirmed === 'ja') {
+    var completedSteps = yar.get('completedSteps') || []
+    completedSteps.push('confirm')
+    yar.set('completedSteps', completedSteps)
     yar.set('confirmedOK', true)
     request.seneca.act({role: 'duplicate', cmd: 'check', duplicateId: fodselsNummer}, function checkDuplicated (error, data) {
       if (error) {

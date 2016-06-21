@@ -176,7 +176,15 @@ const routes = [
     path: '/next',
     config: {
       handler: Handlers.getNext,
-      description: 'Start here if manual'
+      description: 'Show next step'
+    }
+  },
+  {
+    method: 'GET',
+    path: '/previous',
+    config: {
+      handler: Handlers.getPreviousStep,
+      description: 'Show previous step'
     }
   },
   {
