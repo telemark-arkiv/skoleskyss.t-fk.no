@@ -30,14 +30,6 @@ const routes = [
   },
   {
     method: 'GET',
-    path: '/manuell',
-    config: {
-      handler: Handlers.manuell,
-      description: 'Start here if manual'
-    }
-  },
-  {
-    method: 'GET',
     path: '/hjelp',
     config: {
       handler: Handlers.hjelp,
