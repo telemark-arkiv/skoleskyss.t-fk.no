@@ -389,7 +389,6 @@ module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (req
 
 module.exports.showConfirm = function showConfirm (request, reply) {
   const yar = request.yar
-  const confirmedOk = yar.get('confirmedOk')
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -400,11 +399,7 @@ module.exports.showConfirm = function showConfirm (request, reply) {
     korData: yar.get('korData')
   }
 
-  if (confirmedOk) {
-    reply.redirect('/next')
-  } else {
-    reply.view('confirm', viewOptions)
-  }
+  reply.view('confirm', viewOptions)
 }
 
 module.exports.checkConfirm = function checkConfirm (request, reply) {
@@ -417,7 +412,6 @@ module.exports.checkConfirm = function checkConfirm (request, reply) {
     var completedSteps = yar.get('completedSteps') || []
     completedSteps.push('confirm')
     yar.set('completedSteps', completedSteps)
-    yar.set('confirmedOK', true)
     request.seneca.act({role: 'duplicate', cmd: 'check', duplicateId: fodselsNummer}, function checkDuplicated (error, data) {
       if (error) {
         reply(error)

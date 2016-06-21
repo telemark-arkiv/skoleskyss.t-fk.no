@@ -8,7 +8,9 @@ const pkg = require('../package.json')
 
 module.exports.getFrontpage = function getFrontpage (request, reply) {
   const yar = request.yar
-  const introOk = yar.get('introOk')
+  var completedSteps = yar.get('completedSteps') || []
+  completedSteps.push('')
+  yar.set('completedSteps', completedSteps)
 
   const viewOptions = {
     version: pkg.version,
@@ -18,11 +20,7 @@ module.exports.getFrontpage = function getFrontpage (request, reply) {
     githubUrl: pkg.repository.url
   }
 
-  if (introOk) {
-    reply.redirect('confirm')
-  } else {
-    reply.view('index', viewOptions)
-  }
+  reply.view('index', viewOptions)
 }
 
 module.exports.start = function start (request, reply) {
