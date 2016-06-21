@@ -27,6 +27,7 @@ module.exports.getFrontpage = function getFrontpage (request, reply) {
 
 module.exports.start = function start (request, reply) {
   const yar = request.yar
+  request.yar.reset()
   const receivedToken = request.query.jwt
   const jwtDecrypted = jwt.verify(receivedToken, config.SKOLESKYSS_JWT_SECRET)
   const data = encryptor.decrypt(jwtDecrypted.data)
