@@ -8,6 +8,8 @@ const pkg = require('../package.json')
 
 module.exports.getFrontpage = function getFrontpage (request, reply) {
   const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   var completedSteps = yar.get('completedSteps') || []
   completedSteps.push('')
   yar.set('completedSteps', completedSteps)
@@ -17,7 +19,8 @@ module.exports.getFrontpage = function getFrontpage (request, reply) {
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('index', viewOptions)
@@ -63,49 +66,49 @@ module.exports.checkStart = function (request, reply) {
   }
 }
 
-module.exports.manuell = function start (request, reply) {
-  const viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
-  }
-
-  reply.view('index', viewOptions)
-}
-
 module.exports.hjelp = function hjelp (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('hjelp', viewOptions)
 }
 
 module.exports.vilkar = function vilkar (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('vilkar', viewOptions)
 }
 
 module.exports.personvern = function vilkar (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('personvern', viewOptions)

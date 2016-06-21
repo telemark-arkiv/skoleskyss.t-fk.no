@@ -8,12 +8,16 @@ const skoler = require('../lib/data/skoler.json')
 const getSkoleFromId = require('../lib/get-skole-from-id')
 
 module.exports.showTest = function showTest (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('test', viewOptions)
@@ -38,7 +42,8 @@ module.exports.setupTest = function setupTest (request, reply) {
   const korData = {
     uid: payload.FODT.toString() + payload.PERS.toString(),
     MobilePhone: payload.MobilePhone,
-    Email: payload.Email
+    Email: payload.Email,
+    logoutUrl: config.SKOLESKYSS_AUTH_URL_LOGOUT
   }
 
   if (payload.resetSession) {
@@ -85,12 +90,16 @@ module.exports.setupTest = function setupTest (request, reply) {
 }
 
 module.exports.showAvstand = function showAvstand (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl,
     skoler: skoler
   }
 
@@ -126,12 +135,16 @@ module.exports.calculateAvstand = function (request, reply) {
         if (err) {
           reply(err)
         } else {
+          const yar = request.yar
+          const korData = yar.get('korData')
+          const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
           const viewOptions = {
             version: pkg.version,
             versionName: pkg.louie.versionName,
             versionVideoUrl: pkg.louie.versionVideoUrl,
             systemName: pkg.louie.systemName,
             githubUrl: pkg.repository.url,
+            logoutUrl: logoutUrl,
             distance: distance,
             skoleData: skoleData,
             address: address

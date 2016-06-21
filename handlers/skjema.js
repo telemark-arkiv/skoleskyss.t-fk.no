@@ -68,12 +68,16 @@ module.exports.getPreviousStep = function (request, reply) {
 }
 
 module.exports.showSeOver = function showSeOver (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   prepareDataForSubmit(request, function (error, document) {
@@ -90,12 +94,15 @@ module.exports.showBosted = function showBosted (request, reply) {
   const yar = request.yar
   const sessionId = request.yar.id
   const dsfData = yar.get('dsfData')
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl,
     dsfData: dsfData
   }
 
@@ -111,24 +118,32 @@ module.exports.showBosted = function showBosted (request, reply) {
 }
 
 module.exports.showBostedHybel = function showBostedHybel (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('bostedhybel', viewOptions)
 }
 
 module.exports.showBostedDelt = function showBostedDelt (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('bosteddelt', viewOptions)
@@ -136,6 +151,8 @@ module.exports.showBostedDelt = function showBostedDelt (request, reply) {
 
 module.exports.showGrunnlag = function showGrunnlag (request, reply) {
   const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const grunnlagListe = generateGrunnlagListe(yar._store)
   const viewOptions = {
     version: pkg.version,
@@ -143,43 +160,56 @@ module.exports.showGrunnlag = function showGrunnlag (request, reply) {
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
-    grunnlagListe: grunnlagListe
+    grunnlagListe: grunnlagListe,
+    logoutUrl: logoutUrl
   }
 
   reply.view('grunnlag', viewOptions)
 }
 
 module.exports.showBusskort = function showBusskort (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('busskort', viewOptions)
 }
 
 module.exports.showBusskortNummer = function showBusskortNummer (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('busskortnummer', viewOptions)
 }
 
 module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('ikkefunnet', viewOptions)
@@ -187,6 +217,8 @@ module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
 
 module.exports.showVelgSkole = function showVelgSkole (request, reply) {
   const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const sessionId = request.yar.id
   const hybel = yar.get('bostedhybel')
   const delt = yar.get('bosteddelt')
@@ -197,6 +229,7 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl,
     skoler: skoler
   }
 
@@ -217,12 +250,16 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
 }
 
 module.exports.showSkoleAdresse = function showSkoleAdresse (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('skoleadresse', viewOptions)
@@ -230,6 +267,8 @@ module.exports.showSkoleAdresse = function showSkoleAdresse (request, reply) {
 
 module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const sessionId = request.yar.id
   const valgtskole = yar.get('velgskole')
   const hybel = yar.get('bostedhybel')
@@ -243,7 +282,8 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   if (valgtskole.skole !== '0000') {
@@ -296,6 +336,8 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
 
 module.exports.showVelgStudieretning = function showVelgStudieretning (request, reply) {
   const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const valgtskole = yar.get('velgskole')
   const viewOptions = {
     version: pkg.version,
@@ -303,6 +345,7 @@ module.exports.showVelgStudieretning = function showVelgStudieretning (request, 
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl,
     linjeListe: generateLinjeListe(valgtskole.skole)
   }
 
@@ -310,24 +353,32 @@ module.exports.showVelgStudieretning = function showVelgStudieretning (request, 
 }
 
 module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('sokttidligere', viewOptions)
 }
 
 module.exports.showSoknadUendret = function showSoknadUendret (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   reply.view('soknaduendret', viewOptions)
@@ -335,12 +386,15 @@ module.exports.showSoknadUendret = function showSoknadUendret (request, reply) {
 
 module.exports.showKvittering = function showKvittering (request, reply) {
   const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl,
     document: yar.get('submittedData')
   }
 
@@ -374,12 +428,16 @@ module.exports.doSubmit = function doSubmit (request, reply) {
 }
 
 module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
   }
 
   request.cookieAuth.clear()
@@ -389,14 +447,17 @@ module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (req
 
 module.exports.showConfirm = function showConfirm (request, reply) {
   const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl,
     dsfData: yar.get('dsfData'),
-    korData: yar.get('korData')
+    korData: korData
   }
 
   reply.view('confirm', viewOptions)
