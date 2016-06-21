@@ -1,6 +1,7 @@
 'use strict'
 
 const getWaypoints = require('tfk-saksbehandling-skoleskyss-waypoints')
+const config = require('../config')
 const getNextForm = require('../lib/get-next-form')
 const getSkipSteps = require('../lib/get-skip-steps')
 const extractAdressToGeocode = require('../lib/extract-address-to-geocode')
@@ -61,6 +62,24 @@ module.exports.getPreviousStep = function (request, reply) {
   if (completedSteps) {
     const previousStep = completedSteps.pop()
     yar.set('completedSteps', completedSteps)
+
+    if (previousStep === 'skole') {
+      yar.clear('velgskole')
+      yar.clear('velgklasse')
+      yar.clear('skoleadresse')
+    }
+
+    if (previousStep === 'bosted') {
+      yar.clear('bosted')
+      yar.clear('bosteddelt')
+      yar.clear('bostedhybel')
+    }
+
+    if (previousStep === 'busskort') {
+      yar.clear('busskort')
+      yar.clear('busskortnummer')
+    }
+
     reply.redirect('/' + previousStep)
   } else {
     reply.redirect('/')
