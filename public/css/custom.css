@@ -124,6 +124,10 @@ th.mdl-data-table__cell--non-numeric {
     line-height: 24px;
 }
 
+.fontBiggerButton {
+    font-size: 19px;
+}
+
 a {
     color: #007f7a;
 }
