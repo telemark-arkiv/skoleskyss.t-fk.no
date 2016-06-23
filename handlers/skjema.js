@@ -69,6 +69,10 @@ module.exports.getPreviousStep = function (request, reply) {
       yar.clear('skoleadresse')
     }
 
+    if (previousStep === 'grunnlag') {
+      yar.clear('grunnlag')
+    }
+
     if (previousStep === 'bosted') {
       yar.clear('bosted')
       yar.clear('bosteddelt')
@@ -517,6 +521,10 @@ module.exports.setupChanges = function setupChanges (request, reply) {
     yar.clear('velgskole')
     yar.clear('velgklasse')
     yar.clear('skoleadresse')
+  }
+
+  if (type === 'grunnlag') {
+    yar.clear('grunnlag')
   }
 
   if (type === 'bosted') {
