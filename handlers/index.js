@@ -10,6 +10,8 @@ module.exports.getFrontpage = function getFrontpage (request, reply) {
   const yar = request.yar
   const korData = yar.get('korData')
   const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const dsfError = yar.get('dsfError')
+  const korError = yar.get('korError')
   var completedSteps = yar.get('completedSteps') || []
   completedSteps.push('')
   yar.set('completedSteps', completedSteps)
@@ -23,7 +25,12 @@ module.exports.getFrontpage = function getFrontpage (request, reply) {
     logoutUrl: logoutUrl
   }
 
-  reply.view('index', viewOptions)
+  if (dsfError || korError) {
+    request.cookieAuth.clear()
+    reply.redirect('/ikkefunnet')
+  } else {
+    reply.view('index', viewOptions)
+  }
 }
 
 module.exports.start = function start (request, reply) {
@@ -60,6 +67,7 @@ module.exports.checkStart = function (request, reply) {
   yar.set('introOk', true)
 
   if (dsfError || korError) {
+    request.cookieAuth.clear()
     reply.redirect('/ikkefunnet')
   } else {
     reply.redirect('/confirm')

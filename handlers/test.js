@@ -8,9 +8,7 @@ const skoler = require('../lib/data/skoler.json')
 const getSkoleFromId = require('../lib/get-skole-from-id')
 
 module.exports.showTest = function showTest (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -86,13 +84,11 @@ module.exports.setupTest = function setupTest (request, reply) {
     data: data
   })
 
-  reply.redirect('/start')
+  reply.redirect('/')
 }
 
 module.exports.showAvstand = function showAvstand (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -135,9 +131,7 @@ module.exports.calculateAvstand = function (request, reply) {
         if (err) {
           reply(err)
         } else {
-          const yar = request.yar
-          const korData = yar.get('korData')
-          const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+          const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
           const viewOptions = {
             version: pkg.version,
             versionName: pkg.louie.versionName,
