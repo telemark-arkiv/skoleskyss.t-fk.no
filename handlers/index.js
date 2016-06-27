@@ -48,7 +48,9 @@ module.exports.start = function start (request, reply) {
   const token = jwt.sign(data, config.SKOLESKYSS_JWT_SECRET, tokenOptions)
 
   yar.set('dsfData', data.dsfData)
+  yar.set('dsfError', data.dsfError)
   yar.set('korData', data.korData)
+  yar.set('korError', data.korError)
 
   request.cookieAuth.set({
     token: token,
