@@ -71,6 +71,7 @@ const routes = [
     method: 'GET',
     path: '/ikkefunnet',
     config: {
+      auth: false,
       handler: Handlers.showIkkeFunnet,
       description: 'Show the person not found page'
     }
