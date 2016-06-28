@@ -49,6 +49,7 @@ module.exports.start = function start (request, reply) {
 
   yar.set('dsfData', data.dsfData)
   yar.set('korData', data.korData)
+
   const dsfError = data.dsfError
   const korError = data.korError
 
