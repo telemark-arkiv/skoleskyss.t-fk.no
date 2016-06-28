@@ -49,14 +49,20 @@ module.exports.start = function start (request, reply) {
 
   yar.set('dsfData', data.dsfData)
   yar.set('korData', data.korData)
+  const dsfError = data.dsfError
+  const korError = data.korError
 
-  request.cookieAuth.set({
-    token: token,
-    isAuthenticated: true,
-    data: data
-  })
+  if (dsfError || korError) {
+    reply.redirect('/ikkefunnet')
+  } else {
+    request.cookieAuth.set({
+      token: token,
+      isAuthenticated: true,
+      data: data
+    })
 
-  reply.redirect('/')
+    reply.redirect('/')
+  }
 }
 
 module.exports.checkStart = function (request, reply) {
