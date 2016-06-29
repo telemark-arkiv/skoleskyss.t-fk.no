@@ -1,6 +1,6 @@
 {
   "name": "skoleskyss.t-fk.no",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Søk skoleskyss i Telemark",
   "license": "MIT",
   "author": {
@@ -17,7 +17,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4.4.6"
+    "node": ">=4.4.7"
   },
   "scripts": {
     "start": "node standalone.js",
