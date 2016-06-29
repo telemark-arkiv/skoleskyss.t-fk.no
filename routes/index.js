@@ -33,7 +33,8 @@ const routes = [
     path: '/hjelp',
     config: {
       handler: Handlers.hjelp,
-      description: 'Show the help page'
+      description: 'Show the help page',
+      auth: false
     }
   },
   {
@@ -41,7 +42,8 @@ const routes = [
     path: '/vilkar',
     config: {
       handler: Handlers.vilkar,
-      description: 'Show the vilkar page'
+      description: 'Show the vilkar page',
+      auth: false
     }
   },
   {
@@ -49,7 +51,8 @@ const routes = [
     path: '/personvern',
     config: {
       handler: Handlers.personvern,
-      description: 'Show the personvern page'
+      description: 'Show the personvern page',
+      auth: false
     }
   }
 ]
