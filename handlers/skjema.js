@@ -421,8 +421,8 @@ module.exports.showKvittering = function showKvittering (request, reply) {
     document: yar.get('submittedData')
   }
 
+  yar.reset()
   request.cookieAuth.clear()
-
   reply.view('kvittering', viewOptions)
 }
 
@@ -463,6 +463,7 @@ module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (req
     logoutUrl: logoutUrl
   }
 
+  yar.reset()
   request.cookieAuth.clear()
 
   reply.view('uriktigeopplysninger', viewOptions)
