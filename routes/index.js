@@ -54,6 +54,14 @@ const routes = [
       description: 'Show the personvern page',
       auth: false
     }
+  },
+  {
+    method: 'GET',
+    path: '/loggav',
+    config: {
+      handler: Handlers.loggAv,
+      description: 'Log out'
+    }
   }
 ]
 
