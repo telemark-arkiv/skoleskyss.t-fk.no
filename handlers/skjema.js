@@ -440,6 +440,7 @@ module.exports.doSubmit = function doSubmit (request, reply) {
       yar.set('submittedData', document)
       const duplicateData = prepareDuplicateData(document)
       request.seneca.act({role: 'queue', cmd: 'add', data: document})
+      request.seneca.act({role: 'counter', cmd: 'add', key: 'skoleskyss/queue'})
       request.seneca.act({role: 'info', info: 'skoleskyss', data: document})
       request.seneca.act({role: 'duplicate', cmd: 'set', duplicateId: fodselsNummer, data: duplicateData})
       request.seneca.act({role: 'session', cmd: 'clear', sessionId: sessionId})
