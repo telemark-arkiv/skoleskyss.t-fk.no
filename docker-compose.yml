@@ -21,6 +21,13 @@ services_counter:
   restart: always
   net: container:skoleskyss_web
 
+services_stats_dispatcher:
+  image: telemark/tfk-seneca-skoleskyss-stats-dispatcher
+  container_name: skoleskyss_services_stats_dispatcher
+  env_file: skoleskyss.env
+  restart: always
+  net: container:skoleskyss_web
+
 services_session:
   image: telemark/tfk-seneca-session
   container_name: skoleskyss_services_session
