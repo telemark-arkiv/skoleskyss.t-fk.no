@@ -49,6 +49,7 @@ module.exports.start = function start (request, reply) {
   yar.reset()
   yar.set('dsfData', data.dsfData)
   yar.set('korData', data.korData)
+  yar.set('skjemaUtfyllingStart', new Date().getTime())
 
   const dsfError = data.dsfError
   const korError = data.korError
