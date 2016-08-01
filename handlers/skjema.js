@@ -422,7 +422,7 @@ module.exports.showKvittering = function showKvittering (request, reply) {
   }
 
   yar.reset()
-  request.cookieAuth.clear()
+  // request.cookieAuth.clear()
   reply.view('kvittering', viewOptions)
 }
 
