@@ -132,8 +132,7 @@ module.exports.personvern = function vilkar (request, reply) {
 
 module.exports.loggAv = function start (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
 
   request.cookieAuth.clear()
   yar.reset()
