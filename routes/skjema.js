@@ -78,6 +78,15 @@ const routes = [
   },
   {
     method: 'GET',
+    path: '/failwhale',
+    config: {
+      auth: false,
+      handler: Handlers.showFailWhale,
+      description: 'Show the failWhale page'
+    }
+  },
+  {
+    method: 'GET',
     path: '/busskort',
     config: {
       handler: Handlers.showBusskort,

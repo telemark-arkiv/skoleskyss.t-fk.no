@@ -238,6 +238,22 @@ module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
   reply.view('ikkefunnet', viewOptions)
 }
 
+module.exports.showFailWhale = function showFailWhale (request, reply) {
+  const yar = request.yar
+  const korData = yar.get('korData')
+  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url,
+    logoutUrl: logoutUrl
+  }
+
+  reply.view('failwhale', viewOptions)
+}
+
 module.exports.showVelgSkole = function showVelgSkole (request, reply) {
   const yar = request.yar
   const korData = yar.get('korData')

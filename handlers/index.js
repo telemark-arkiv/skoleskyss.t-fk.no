@@ -55,7 +55,11 @@ module.exports.start = function start (request, reply) {
   const korError = data.korError
 
   if (dsfError || korError) {
-    reply.redirect('/ikkefunnet')
+    if (dsfError && dsfError.CODE === '4') {
+      reply.redirect('/failwhale')
+    } else {
+      reply.redirect('/ikkefunnet')
+    }
   } else {
     request.cookieAuth.set({
       token: token,
