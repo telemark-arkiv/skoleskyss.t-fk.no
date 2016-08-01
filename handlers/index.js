@@ -134,7 +134,7 @@ module.exports.loggAv = function start (request, reply) {
   const yar = request.yar
   const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
 
-  // request.cookieAuth.clear()
+  request.cookieAuth.clear()
   yar.reset()
 
   reply.redirect(logoutUrl)
