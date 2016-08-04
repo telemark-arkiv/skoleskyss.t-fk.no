@@ -28,7 +28,7 @@ module.exports.getNext = function (request, reply) {
   }
 
   const nextForm = getNextForm(yar._store)
-  if (payload && payload.stepName === 'velgklasse') {
+  if (payload && payload.stepName === 'grunnlag') {
     prepareDataForSubmit(request, function (error, document) {
       if (error) {
         reply(error)
