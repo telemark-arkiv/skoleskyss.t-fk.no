@@ -313,8 +313,6 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   const hybel = yar.get('bostedhybel')
   const delt = yar.get('bosteddelt')
   const dsf = yar.get('dsfData')
-  const skole = getSkoleFromId(valgtskole.skole)
-  const destination = unwrapGeocoded(skole)
 
   const viewOptions = {
     version: pkg.version,
@@ -326,6 +324,8 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   }
 
   if (valgtskole.skole !== '0000') {
+    const skole = getSkoleFromId(valgtskole.skole)
+    const destination = unwrapGeocoded(skole)
     request.seneca.act({role: 'session', cmd: 'get', sessionId: sessionId}, function (error, data) {
       if (error) {
         console.error(error)
