@@ -1,6 +1,6 @@
 {
   "name": "skoleskyss.t-fk.no",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Søk skoleskyss i Telemark",
   "license": "MIT",
   "author": {
@@ -25,6 +25,7 @@
     "coverage": "tap test/**/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/**/*.js && cat coverage/lcov.info | coveralls",
     "setup": "npm install && node setup.js",
+    "standard-fix": "standard --fix",
     "generate-test-token": "node utils/generate-test-token.js"
   },
   "keywords": [
