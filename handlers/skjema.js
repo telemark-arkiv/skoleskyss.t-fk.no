@@ -91,9 +91,7 @@ module.exports.getPreviousStep = function (request, reply) {
 }
 
 module.exports.showSeOver = function showSeOver (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -117,8 +115,7 @@ module.exports.showBosted = function showBosted (request, reply) {
   const yar = request.yar
   const sessionId = request.yar.id
   const dsfData = yar.get('dsfData')
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -141,9 +138,7 @@ module.exports.showBosted = function showBosted (request, reply) {
 }
 
 module.exports.showBostedHybel = function showBostedHybel (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -157,9 +152,7 @@ module.exports.showBostedHybel = function showBostedHybel (request, reply) {
 }
 
 module.exports.showBostedDelt = function showBostedDelt (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -174,8 +167,7 @@ module.exports.showBostedDelt = function showBostedDelt (request, reply) {
 
 module.exports.showGrunnlag = function showGrunnlag (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const grunnlagListe = generateGrunnlagListe(yar._store)
   const viewOptions = {
     version: pkg.version,
@@ -191,9 +183,7 @@ module.exports.showGrunnlag = function showGrunnlag (request, reply) {
 }
 
 module.exports.showBusskort = function showBusskort (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -207,9 +197,7 @@ module.exports.showBusskort = function showBusskort (request, reply) {
 }
 
 module.exports.showBusskortNummer = function showBusskortNummer (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -223,9 +211,7 @@ module.exports.showBusskortNummer = function showBusskortNummer (request, reply)
 }
 
 module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -239,9 +225,7 @@ module.exports.showIkkeFunnet = function showIkkeFunnet (request, reply) {
 }
 
 module.exports.showFailWhale = function showFailWhale (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -256,8 +240,7 @@ module.exports.showFailWhale = function showFailWhale (request, reply) {
 
 module.exports.showVelgSkole = function showVelgSkole (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const sessionId = request.yar.id
   const hybel = yar.get('bostedhybel')
   const delt = yar.get('bosteddelt')
@@ -289,9 +272,7 @@ module.exports.showVelgSkole = function showVelgSkole (request, reply) {
 }
 
 module.exports.showSkoleAdresse = function showSkoleAdresse (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -306,8 +287,7 @@ module.exports.showSkoleAdresse = function showSkoleAdresse (request, reply) {
 
 module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const sessionId = request.yar.id
   const valgtskole = yar.get('velgskole')
   const hybel = yar.get('bostedhybel')
@@ -375,8 +355,7 @@ module.exports.showVelgKlasse = function showVelgKlasse (request, reply) {
 
 module.exports.showVelgStudieretning = function showVelgStudieretning (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const valgtskole = yar.get('velgskole')
   const viewOptions = {
     version: pkg.version,
@@ -392,9 +371,7 @@ module.exports.showVelgStudieretning = function showVelgStudieretning (request, 
 }
 
 module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -408,9 +385,7 @@ module.exports.showSoktTidligere = function showSoktTidligere (request, reply) {
 }
 
 module.exports.showSoknadUendret = function showSoknadUendret (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -425,8 +400,7 @@ module.exports.showSoknadUendret = function showSoknadUendret (request, reply) {
 
 module.exports.showKvittering = function showKvittering (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -470,8 +444,7 @@ module.exports.doSubmit = function doSubmit (request, reply) {
 
 module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -490,7 +463,7 @@ module.exports.showUriktigeOpplysninger = function showUriktigeOpplysninger (req
 module.exports.showConfirm = function showConfirm (request, reply) {
   const yar = request.yar
   const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
