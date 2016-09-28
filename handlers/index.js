@@ -8,7 +8,6 @@ const pkg = require('../package.json')
 
 module.exports.getFrontpage = function getFrontpage (request, reply) {
   const yar = request.yar
-  const korData = yar.get('korData')
   const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const dsfError = yar.get('dsfError')
   const korError = yar.get('korError')
@@ -87,9 +86,7 @@ module.exports.checkStart = function (request, reply) {
 }
 
 module.exports.hjelp = function hjelp (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -103,9 +100,7 @@ module.exports.hjelp = function hjelp (request, reply) {
 }
 
 module.exports.vilkar = function vilkar (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -119,9 +114,7 @@ module.exports.vilkar = function vilkar (request, reply) {
 }
 
 module.exports.personvern = function vilkar (request, reply) {
-  const yar = request.yar
-  const korData = yar.get('korData')
-  const logoutUrl = korData.logoutUrl || config.SKOLESKYSS_AUTH_URL_LOGOUT
+  const logoutUrl = config.SKOLESKYSS_AUTH_URL_LOGOUT
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
