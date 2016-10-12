@@ -16,7 +16,12 @@ MAINTAINER Geir Gåsodden
 RUN apk add --update --no-cache git
 
 # Extra tools for native dependencies
-RUN apk add --no-cache make gcc g++ python
+RUN apk add --no-cache make gcc g++ python tzdata
+
+# Timezone
+ENV TIMEZONE Europe/Oslo
+RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+RUN echo "${TIMEZONE}" > /etc/timezone
 
 # Bundle app source
 COPY . /src
