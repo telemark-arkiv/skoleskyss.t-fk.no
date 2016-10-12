@@ -29,7 +29,8 @@ const yarOptions = {
   storeBlank: false,
   cookieOptions: {
     password: config.SKOLESKYSS_YAR_SECRET,
-    isSecure: true
+    isSecure: false,
+    isSameSite: 'Lax'
   }
 }
 
@@ -71,7 +72,8 @@ server.register(authPlugins, function (error) {
     cookie: 'skoleskyss-session',
     validateFunc: validate,
     redirectTo: config.SKOLESKYSS_AUTH_URL_LOGIN,
-    isSecure: true
+    isSecure: false,
+    isSameSite: 'Lax'
   })
 
   server.auth.default('session')
