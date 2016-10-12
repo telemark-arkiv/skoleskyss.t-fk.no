@@ -29,7 +29,7 @@ const yarOptions = {
   storeBlank: false,
   cookieOptions: {
     password: config.SKOLESKYSS_YAR_SECRET,
-    isSecure: false
+    isSecure: true
   }
 }
 
