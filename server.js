@@ -71,7 +71,7 @@ server.register(authPlugins, function (error) {
     cookie: 'skoleskyss-session',
     validateFunc: validate,
     redirectTo: config.SKOLESKYSS_AUTH_URL_LOGIN,
-    isSecure: false
+    isSecure: true
   })
 
   server.auth.default('session')
