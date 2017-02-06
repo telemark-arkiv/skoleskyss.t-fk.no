@@ -1,4 +1,6 @@
 # skoleskyss.t-fk.no
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/skoleskyss.t-fk.no.svg)](https://greenkeeper.io/)
 Skjemaløsning for søknader om skoleskyss i Telemark fylkeskommune
 
 ## Dokumentasjon
