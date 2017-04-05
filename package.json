@@ -3,6 +3,7 @@
   "version": "3.0.35",
   "description": "Søk skoleskyss i Telemark",
   "license": "MIT",
+  "private": true,
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
