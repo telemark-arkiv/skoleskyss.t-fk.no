@@ -70,7 +70,7 @@
     "hapi-auth-cookie": "git+https://github.com/arnivuo/hapi-auth-cookie",
     "hapi-auth-jwt2": "7.2.4",
     "hoek": "4.1.0",
-    "inert": "4.1.0",
+    "inert": "4.2.0",
     "jsonwebtoken": "7.3.0",
     "mongojs": "2.4.0",
     "seneca": "3.2.2",
