@@ -3,6 +3,7 @@
   "version": "3.0.35",
   "description": "Søk skoleskyss i Telemark",
   "license": "MIT",
+  "private": true,
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
@@ -65,7 +66,7 @@
     "good-console": "6.3.1",
     "good-squeeze": "5.0.1",
     "handlebars": "4.0.6",
-    "hapi": "16.1.0",
+    "hapi": "16.1.1",
     "hapi-auth-cookie": "git+https://github.com/arnivuo/hapi-auth-cookie",
     "hapi-auth-jwt2": "7.2.4",
     "hoek": "4.1.1",
