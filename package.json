@@ -74,7 +74,7 @@
     "jsonwebtoken": "7.4.1",
     "mongojs": "2.4.0",
     "seneca": "3.3.0",
-    "seneca-balance-client": "0.6.0",
+    "seneca-balance-client": "0.6.1",
     "seneca-mesh": "0.10.0",
     "simple-encryptor": "1.1.0",
     "tfk-saksbehandling-skoleskyss-waypoints": "1.0.11",
